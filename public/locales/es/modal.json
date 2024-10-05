@@ -1,0 +1,13 @@
+
+    {
+        "Title": "Nuevo evento",
+        "Title1": "Notas",
+        "FechaInt": "Fecha y hora inicio",
+        "FechaFin": "Fecha y hora fin",
+        "TituloNotas": "Titulo y notas",
+        "TituloPlaceholder": "Introduzca el título aquí",
+        "Descripcion": "Una descripción corta",
+        "NotasPlaceholder": "Introduzca las notas",
+        "Informacion": "Información adicional",
+        "Boton": "Guardar"
+    }

@@ -1,0 +1,17 @@
+{
+    "card": {
+         "services": "Servicios",
+         "salCoche": "SAL.COCHE",
+         "hInicio": "H.INICIO",
+         "hFinal": "H.FINA",
+         "entCoche": "ENT.COCHE",
+         "autobus": "AUTOBUS",
+         "matricula": "MATRICULA",
+         "tipoServicio": "TIPO SERVICIO",
+         "codigo": "CODIGO",
+         "lInicio": "L.INICIO",
+         "lFinal": "L.FINAL",
+         "observaciones": "Observaciones"
+
+    }
+}

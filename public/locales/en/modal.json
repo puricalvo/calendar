@@ -1,0 +1,12 @@
+
+    {
+        "Title": "New event",
+        "FechaInt": "Start date and time",
+        "FechaFin": "End date and time",
+        "TituloNotas": "Title and notes",
+        "TituloPlaceholder": "Enter the title",
+        "Descripcion": "A short description",
+        "NotasPlaceholder": "Enter the notes",
+        "Informacion": "Additional information",
+        "Boton": "Keep"
+    }
