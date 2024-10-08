@@ -1,0 +1,13 @@
+
+    {
+        "Title": "Nou esdeveniment",
+        "Title1": "Notes",
+        "FechaInt": "Data i hora inici",
+        "FechaFin": "Data i hora fi",
+        "TituloNotas": "Títol i notes",
+        "TituloPlaceholder": "Introduïu el títol aquí",
+        "Descripcion": "Una descripció curta",
+        "NotasPlaceholder": "Introduïu les notes",
+        "Informacion": "Introduïu les notes",
+        "Boton": "Desa"
+    }

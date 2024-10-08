@@ -1,0 +1,17 @@
+{
+    
+        "AllDay": "Tot el dia",
+        "Previous": "<",
+        "Next": ">",
+        "Today": "Avui",
+        "Month": "Mes",
+        "Week": "Setmana",
+        "Day": "Día",
+        "Agenda": "Agenda",
+        "Date": "Data",
+        "Time": "Hora",
+        "Event": "Esdeveniment",
+        "NoEventsInRange": "No hi ha esdeveniments en aquest rang",
+        "showMore": "+ mostra més ({{total}})"
+    
+}

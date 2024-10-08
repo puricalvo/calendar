@@ -80,10 +80,10 @@ export const Navbar = () => {
                         
                     </Button>
                 <ButtonGroup  size="large" aria-label="Large button group" >
-                    <Button onClick={() => changeLanguaje('es')} variant="text" color="error" sx={{fontSize: '1rem'}}>ES</Button>
-                    <Button variant="text"  sx={{fontSize: '1rem', color: 'GrayText'}}>CA</Button>
+                    <Button onClick={() => changeLanguaje('es')} variant="text"  sx={{fontSize: '1rem', color: 'GrayText'}}>ES</Button>
+                    <Button onClick={() => changeLanguaje('fr')} variant="text"  sx={{fontSize: '1rem', color: 'GrayText'}}>FR</Button>
                     <Button onClick={() => changeLanguaje('en')} variant="text"  sx={{fontSize: '1rem', color: 'GrayText'}}>EN</Button>
-                    <Button variant="text"  sx={{fontSize: '1rem', color: 'GrayText'}}>FR</Button>
+                    <Button onClick={() => changeLanguaje('ca')} variant="text"  sx={{fontSize: '1rem', color: 'GrayText'}}>CA</Button>
                 </ButtonGroup>
                     <Button 
                       variant="text" 

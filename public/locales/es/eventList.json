@@ -1,0 +1,21 @@
+
+{   
+    
+
+        "AllDay": "Todo el día",
+        "Previous": "<",
+        "Next": ">",
+        "Today": "Hoy",
+        "Month": "Mes",
+        "Week": "Semana",
+        "Day": "Día",
+        "Agenda": "Agenda",
+        "Date": "Fecha",
+        "Time": "Hora",
+        "Event": "Evento",
+        "NoEventsInRange": "No hay eventos en este rango",
+        "showMore": "+ Ver mas ({{total}})"
+       
+        
+    
+}

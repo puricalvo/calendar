@@ -1,0 +1,9 @@
+
+    {
+        
+        "Subtltle": "Serveis i Missatgeria",
+        "subTitle2": "per a aquest dia:",
+        "Button1": "Marcar com a llegit",
+        "Button2": "Veure full del conductor/a",
+        "postedOn": "{{  date, dd/mm/yyyy }}"
+    }

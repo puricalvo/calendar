@@ -40,6 +40,8 @@ export const DatePike = () => {
     const days = { 
       es: [ 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom',],
       en: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
+      fr: ['Lun','Mar','Mer','Jeu','Ven','Sam','Dim'],
+      ca: ['Dil','Dim','Dim','Dij','Div', 'Dis','Diu']
     };
 
     const currentDays = days[i18n.language] || days['es']; 

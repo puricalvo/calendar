@@ -1,19 +1,30 @@
 import { useEffect, useState } from 'react';
 import { Calendar } from 'react-big-calendar';
+import { useTranslation } from 'react-i18next';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
 
-
 import { TareaMes, CalendarEvent, CalendarModal, FabAddNew, FabDelete } from '../components';
-
-
 import { useAuthStore, useCalendarStore, useUiStore } from '../../hooks';
-import { getMessagesEs, localizer } from '../../helpers';
+import {  eventList, localizer } from '../../helpers';
+import { Grid, Select } from '@mui/material';
+
+
+
 
 
 
 export const CalendarPage = () => {
 
- 
+    const { t, i18n } = useTranslation('eventList');
+
+    const changeLanguage = (lng) => {
+      i18n.changeLanguage(lng);     // Cambiar idioma con dayjs
+    };
+
+    const [language, setLanguage] = useState('en')
+
+    // const _localizer = localizer('es');
+
     const { user } = useAuthStore();
     const { openDateModal } = useUiStore(); 
     const { events, setActiveEvent, startLoadingEvents  } = useCalendarStore();
@@ -54,30 +65,37 @@ export const CalendarPage = () => {
     useEffect(() => {
       startLoadingEvents(); 
     }, [])
-     
-
-
+    
+    
   return (
     <>
         <TareaMes/>
+        <div>
+        <select onChange={(e) => changeLanguage(e.target.value)} value={i18n.language}>
+            <option value="en">English</option>
+            <option value="es">Español</option>
+            <option value="fr">Français</option>
+            <option value="ca">Catalan</option>
+        </select>
+        </div>
         
         <Calendar
-          culture='es'
+          culture={ i18n.language }
           localizer={ localizer }
           events={ events }
           defaultView={ lastView }
           startAccessor="start"
           endAccessor="end"
           style={{ height: 'calc( 100vh - 80px)' }}
-          messages={ getMessagesEs() }
           eventPropGetter={ eventStyleGetter }
           components={{
             event: CalendarEvent
           }}
           onDoubleClickEvent={ onDoubleClick }
           onSelectEvent={ onSelect }
-          onView={ onViewChanged }
+          onView={ onViewChanged } 
         />
+
 
           <CalendarModal />
 

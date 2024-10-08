@@ -26,7 +26,7 @@ export const Sidebar2 = () => {
                       {t('subTitle2')} 
                 </Typography>
                 <Typography variant="h6" component='small' sx={{ p:0, display: { xs: "none", md: "inline-flex" } }}>
-                  02-10-24
+                {t('postedOn', { date: new Date() })}
                 </Typography>
             <ButtonGroup variant="outlined" component='small'  size="large" aria-label="large button group" sx={{ p:1 }} >
             <Button  color="error" sx={{ fontSize: '0.75rem', mr: 0, ml: '-2px'}}>{t('Button1')}</Button>

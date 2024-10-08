@@ -1,0 +1,19 @@
+{
+   
+        "AllDay": "All day",
+        "Previous": "<",
+        "Next": ">",
+        "Today": "Today",
+        "Month": "Month",
+        "Week": "Week",
+        "Day": "Day",
+        "Agenda": "Agenda",
+        "Date": "Date",
+        "Time": "Hour",
+        "Event": "Event",
+        "NoEventsInRange": "There are no events in this range",
+        "showMore": "+ show more ({{total}})"
+       
+        
+    
+}
