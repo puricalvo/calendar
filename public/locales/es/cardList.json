@@ -1,17 +1,17 @@
 {
     
-    "Servicios":"",
-    "SAL.COCHE":"",
-    "H.INICIO":"",
-    "H.FINA":"",
-    "ENT.COCHE":"",
-    "AUTOBUS":"",
-    "MATRICULA":"",
-    "TIPO SERVICIO":"",
-    "CODIGO":"",
-    "L.INICIO":"",
-    "L.FINAL":"",
-    "Observaciones":""
+    "Servicios":"Servicios",
+    "SAL.COCHE":"SAL.COCHE",
+    "H.INICIO":"H.INICIO",
+    "H.FINA":"H.FINA",
+    "ENT.COCHE":"ENT.COCHE",
+    "AUTOBUS":"AUTOBUS",
+    "MATRICULA":"MATRICULA",
+    "TIPO SERVICIO":"TIPO SERVICIO",
+    "CODIGO":"CODIGO",
+    "L.INICIO":"L.INICIO",
+    "L.FINAL":"L.FINAL",
+    "Observaciones":"Observaciones"
 
 
 }

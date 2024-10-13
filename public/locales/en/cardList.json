@@ -1,17 +1,16 @@
 {
     
-    "Servicios":"",
-    "SAL.COCHE":"",
-    "H.INICIO":"",
-    "H.FINA":"",
-    "ENT.COCHE":"",
-    "AUTOBUS":"",
-    "MATRICULA":"",
-    "TIPO SERVICIO":"",
-    "CODIGO":"",
-    "L.INICIO":"",
-    "L.FINAL":"",
-    "Observaciones":""
-
+    "Servicios":"Services",
+    "SAL.COCHE":"EXIT.CAR",
+    "H.INICIO":"START.T",
+    "H.FINA":"END.T",
+    "ENT.COCHE":"ENTRY.CAR",
+    "AUTOBUS":"BUS",
+    "MATRICULA":"REGISTRATION",
+    "TIPO SERVICIO":"SERVICE TYPE",
+    "CODIGO":"CODE",
+    "L.INICIO":"START.PLACE",
+    "L.FINAL":"END.PLACE",
+    "Observaciones":"Observations"
 
 }

@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
-import { addHours, differenceInMinutes } from "date-fns";
+import { addHours, differenceInMinutes, format } from "date-fns";
 
 import Swal from "sweetalert2";
 import 'sweetalert2/dist/sweetalert2.min.css';
@@ -8,12 +8,23 @@ import Modal from "react-modal";
 
 import DatePicker, { registerLocale } from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
+  
+import {es,fr, ca, enUS} from 'date-fns/locale';
 
-import { es } from 'date-fns/locale/es';
 import { useCalendarStore, useUiStore } from "../../hooks";
 import { useTranslation } from "react-i18next";
 
-registerLocale( 'es', es );
+registerLocale(  'es', es );
+registerLocale(  'fr', fr );
+registerLocale(  'ca', ca );
+registerLocale(  'en', enUS );
+
+const localesMap = {
+  es: es,
+  fr: fr,
+  ca: ca,
+  en: enUS
+}
 
 
 const customStyles = {
@@ -31,13 +42,18 @@ const customStyles = {
 
 export const CalendarModal = () => {
 
-  const { t } = useTranslation('modal');
+  const { t , i18n } = useTranslation('modal');
+
+ 
+  
 
   const { isDateModalOpen, closeDateModal } = useUiStore();
   const { activeEvent, startSavingEvrnt } = useCalendarStore();
 
   const [formSubmitted, setFormSubmitted] = useState(false);
 
+ 
+ 
 
   // Valores del formulario
   const [formValues, setFormValues] = useState({
@@ -70,7 +86,8 @@ export const CalendarModal = () => {
     setFormValues({
       ...formValues,
       [target.name]: target.value
-    })
+    });
+    
   }
 
   // Cambiar los valores de las horas de start: inicio. end: final
@@ -109,6 +126,9 @@ export const CalendarModal = () => {
     
   }
 
+  const locale = localesMap[i18n.language] || localesMap['en'];
+  
+
   return (
     <Modal
       isOpen={ isDateModalOpen }
@@ -129,10 +149,10 @@ export const CalendarModal = () => {
                         selected={ formValues.start }
                         onChange={ (event) => onDateChanged(event, 'start') }
                         className="form-control"
-                        dateFormat="Pp"
+                        dateFormat='Pp'
                         showTimeSelect
-                        locale="es"
                         timeCaption="Hora"
+                        locale={locale}
 
                     />
                 </div>
@@ -147,10 +167,11 @@ export const CalendarModal = () => {
                         selected={ formValues.end }
                         onChange={ (event) => onDateChanged(event, 'end') }
                         className="form-control"
-                        dateFormat="Pp"
+                        dateFormat='Pp'
                         showTimeSelect
-                        locale="es"
                         timeCaption="Hora"
+                        locale={locale}
+
                     />
                 </div>
             </div>

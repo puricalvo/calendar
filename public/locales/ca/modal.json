@@ -8,6 +8,9 @@
         "TituloPlaceholder": "Introduïu el títol aquí",
         "Descripcion": "Una descripció curta",
         "NotasPlaceholder": "Introduïu les notes",
-        "Informacion": "Introduïu les notes",
-        "Boton": "Desa"
+        "Informacion": "Informació addicional",
+        "Boton": "Guardar",
+        "postedOn": "{{  date, dd/mm/yyyy }}"
     }
+
+    

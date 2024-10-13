@@ -12,6 +12,6 @@
         "Time": "Hora",
         "Event": "Esdeveniment",
         "NoEventsInRange": "No hi ha esdeveniments en aquest rang",
-        "showMore": "+ mostra més ({{total}})"
+        "showMore": "+ Veure més ({{total}})"
     
 }

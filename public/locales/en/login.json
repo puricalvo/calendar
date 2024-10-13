@@ -1,6 +1,4 @@
 {
-    "Title": "Login",
-    "Email": "Email",
-    "Password": "Password",
-    "Submit": "Submit"
-  }
+    
+    "CreateAccount": "Create account"
+}

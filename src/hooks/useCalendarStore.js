@@ -7,12 +7,14 @@ import { onAddNewEvent, onDeleteEvent, onLoadEvents, onSetActiveEvent, onUpdateE
 
 
 
+
 export const useCalendarStore = () => {
 
     const dispatch = useDispatch();
 
     //* Funcion para activar el calendario
     const { events, activeEvent } = useSelector( state => state.calendario); //! El state.calendario es el nombre de la carpeta...
+      
     const { user } = useSelector( state => state.auth ); 
     
     //* Funcion para que se muestre el evento  en el modal

@@ -1,17 +1,18 @@
 {
     
-        "Servicios":"",
-        "SAL.COCHE":"",
-        "H.INICIO":"",
-        "H.FINA":"",
-        "ENT.COCHE":"",
-        "AUTOBUS":"",
-        "MATRICULA":"",
-        "TIPO SERVICIO":"",
-        "CODIGO":"",
-        "L.INICIO":"",
-        "L.FINAL":"",
-        "Observaciones":""
+        "Servicios":"Services",
+        "SAL.COCHE":"SOR.VOITURE",
+        "H.INICIO":"H.DÉBUT",
+        "H.FINA":"DERNIÈRE.T",
+        "ENT.COCHE":"EN.VOITURE",
+        "AUTOBUS":"BUS",
+        "MATRICULA":"IMMATRICULATION",
+        "TIPO SERVICIO":"TYPE SERVICE",
+        "CODIGO":"CODE",
+        "L.INICIO":"L.DÉPART",
+        "L.FINAL":"P.DERNIÈRE",
+        "Observaciones":"Observations"
 
     
 }
+

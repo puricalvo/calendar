@@ -1,18 +1,22 @@
-
-
-import {  Card,  Divider,  Grid } from "@mui/material";
-import { MessagesConductor } from "../components/MessagesConductor";
-import { DatePike } from "../components/DatePike";
-import { CardList } from "../components/CardList";
+import {  Card, Divider,  Grid } from "@mui/material";
+import {  DatePike, MessagesConductor, CardList  } from "../components";
 
 
 
+const events = {
+  notes: 'tienes que recoger el coche mañana',
+  user: {
+    _id: '123',
+    name: 'Justo'
+  }
+}
 
-export const CardConductor = ({children}) => {
 
 
+export const CardConductor = () => {
 
- 
+  
+
   return (
      <Grid container 
      className="animate__animated animate__fadeIn animate__faster"  
@@ -53,7 +57,7 @@ export const CardConductor = ({children}) => {
       justifyContent='center'  
     >
         <MessagesConductor
-          messages
+          events={events} 
         />
     </Grid>
      

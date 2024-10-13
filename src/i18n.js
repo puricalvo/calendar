@@ -1,13 +1,15 @@
-// src/i18n.js
+
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 import HttpBackend from 'i18next-http-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 import { format as formatDate, isDate } from "date-fns";
-import {  nl } from "date-fns/locale"; // import all locales we need
+import { enUS, es, fr, ca } from "date-fns/locale"; // import all locales we need
 
-const locales = {  nl }; 
+const locales = { en: enUS, es, fr, ca }; 
+
+
 
 // Configuración de i18next
 i18n
@@ -19,7 +21,7 @@ i18n
     backend: {
       loadPath: './locales/{{lng}}/{{ns}}.json' // Ruta para cargar los archivos JSON de traducción
     },
-    ns: ['common', 'datePicke', 'login', 'sidebar', 'navbar', 'modal', 'register', 'eventList','mensajesConductor', 'cardList', 'datePicke'], // Namespaces: un archivo JSON por sección
+    ns: ['common', 'datePicke', 'login', 'sidebar', 'navbar', 'modal', 'messages','register', 'eventList','mensajesConductor', 'cardList'], // Namespaces: un archivo JSON por sección
     defaultNS: 'common', // Namespace por defecto
     interpolation: {
       escapeValue: false ,// React ya maneja la seguridad de los valores
@@ -31,6 +33,14 @@ i18n
       }
         
     }
-})
+
+    
+    
+  });
+  
+  i18n.on('failedLoading', (lng, ns, msg) => {
+    console.error(`Error cargando traducciones: ${lng}, ${ns}, ${msg}`);
+  });
+
 
 export default i18n; 

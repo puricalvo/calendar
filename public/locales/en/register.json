@@ -1,9 +1,10 @@
 {
     "Title": "Create account",
     "Name": "Full name",
-    "Email": "Email",
+    "Email": "Mail",
     "Password": "Password",
     "Password1": "Repeat password",
     "Button": "Create account",
-    "Button1": "Get into"
+    "Button1": "login"
 }
+

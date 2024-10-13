@@ -1,11 +1,11 @@
 
 
-export const eventList = () => {
+export const getMessagesES = () => {
     return {
-        es: {
+        
             allDay: 'Todo el día',
-            previous: '<',
-            next: '>',
+            previous: 'Anterior',
+            next: 'Siguiente',
             today: 'Hoy',
             month: 'Mes',
             week: 'Semana',
@@ -16,26 +16,31 @@ export const eventList = () => {
             event: 'Evento',
             noEventsInRange: 'No hay eventos en este rango',
             showMore: total => `+ Ver más (${total})`
-        },
-        fr: {
-       
-            AllDay: "Toute la journée",
-            Previous: "<",
-            Next: ">",
-            Today: "Aujourd'hui",
-            Month: "Mois",
-            Week: "Semaine",
-            Day: "Jour",
-            Agenda: "Ordre du jour",
-            Date: "Date",
-            Time: "Heure",
-            Event: "Événement",
-            NoEventsInRange: "Il n'y a aucun événement dans cette plage",
-            showMore: total => `+ afficher plus (${total})` 
-         
-        },
-        en: {
-       
+        
+    };
+};
+
+export const getMessagesFR = () => {
+    return {
+      allDay: 'Toute la journée',
+      previous: 'Précédent',
+      next: 'Suivant',
+      today: "Aujourd'hui",
+      month: 'Mois',
+      week: 'Semaine',
+      day: 'Jour',
+      agenda: 'Agenda',
+      date: 'Date',
+      time: 'Heure',
+      event: 'Événement',
+      noEventsInRange: "Aucun événement dans cette plage de dates.",
+      showMore: total => `+ Voir plus (${total})`
+    };
+  };
+
+export const getMessagesEN = () => {
+    return {
+        
             AllDay: "All day",
             Previous: "<",
             Next: ">",
@@ -50,30 +55,25 @@ export const eventList = () => {
             NoEventsInRange: "There are no events in this range",
             showMore: total => `+ show more (${total})`
        
-        },
-        ca:{
         
-            AllDay: "Tot el dia",
-            Previous: "<",
-            Next: ">",
-            Today: "Avui",
-            Month: "Mes",
-            Week: "Setmana",
-            Day: "Día",
-            Agenda: "Agenda",
-            Date: "Data",
-            Time: "Hora",
-            Event: "Esdeveniment",
-            NoEventsInRange: "No hi ha esdeveniments en aquest rang",
-            showMore: total => `+ mostra més (${total})`
-        
-        }
-    
-    
-    }
-    
+    };
+};
 
-}
-        
- 
+export const getMessagesCA = () => {
+    return {
+      allDay: 'Tot el dia',
+      previous: 'Anterior',
+      next: 'Següent',
+      today: 'Avui',
+      month: 'Mes',
+      week: 'Setmana',
+      day: 'Dia',
+      agenda: 'Agenda',
+      date: 'Data',
+      time: 'Hora',
+      event: 'Esdeveniment',
+      noEventsInRange: 'No hi ha esdeveniments en aquest interval de dates.',
+      showMore: total => `+ Veure més (${total})`
+    };
+  };
 

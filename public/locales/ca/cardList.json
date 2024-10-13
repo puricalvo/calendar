@@ -1,17 +1,18 @@
 {
     
-    "Servicios":"",
-    "SAL.COCHE":"",
-    "H.INICIO":"",
-    "H.FINA":"",
-    "ENT.COCHE":"",
-    "AUTOBUS":"",
-    "MATRICULA":"",
-    "TIPO SERVICIO":"",
-    "CODIGO":"",
-    "L.INICIO":"",
-    "L.FINAL":"",
-    "Observaciones":""
+    "Servicios":"Serveis",
+    "SAL.COCHE":"SOR.COTXE",
+    "H.INICIO":"H.INICI",
+    "H.FINA":"H.FINAL",
+    "ENT.COCHE":"ENT.COTXE",
+    "AUTOBUS":"AUTOBUS",
+    "MATRICULA":"MATRICULA",
+    "TIPO SERVICIO":"TIPUS SERVEI",
+    "CODIGO":"CODI",
+    "L.INICIO":"LLOC.INICI",
+    "L.FINAL":"LLOC.FINAL",
+    "Observaciones":"Observacions"
 
 
 }
+

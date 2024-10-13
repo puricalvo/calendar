@@ -9,5 +9,6 @@
         "Descripcion": "Une brève description",
         "NotasPlaceholder": "Saisir des notes",
         "Informacion": "Informations Complémentaires",
-        "Boton": "Garder"
+        "Boton": "Garder",
+        "postedOn": "{{  date, dd/mm/yyyy }}"
     }

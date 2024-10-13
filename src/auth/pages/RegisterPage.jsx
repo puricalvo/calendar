@@ -1,9 +1,11 @@
 import { Link as RouterLink } from 'react-router-dom';
-import {  Button, Grid,  Link,  TextField, Typography } from "@mui/material";
+import {  Box, Button, ButtonGroup, Grid,  Icon,  Link,  TextField, Typography } from "@mui/material";
 import { AuthLayout } from "../layout/AuthLayout";
 import { useAuthStore, useForm } from "../../hooks";
 import Swal from 'sweetalert2';
 import { useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
+import { Flag } from '@mui/icons-material';
 
 
 const registerFormFields = {
@@ -17,6 +19,12 @@ const registerFormFields = {
 
 
 export const RegisterPage = () => {
+
+  const {  t, i18n } = useTranslation('register');
+  
+  const changeLanguaje = (lng) => {
+    i18n.changeLanguage(lng); // Cambia el idioma de forma asincrónica 
+  };
 
   const { errorMessage, startRegister } = useAuthStore();
    const { registerName, registerEmail, registerPassword, registerPassword2, onInputChange: onRegisterInputChange } =  useForm( registerFormFields );
@@ -37,8 +45,24 @@ export const RegisterPage = () => {
   }, [errorMessage])
   
   return (
-    <AuthLayout title="Crear cuenta">
-
+                <AuthLayout title="Crear cuenta">
+            <Grid container direction='row' 
+                  justifyContent='space-between' 
+                  alignItems='center'
+                  padding='2'
+                  sx={{
+                    display:'flex',
+                    flexwrap: 'wrap',
+                  }} 
+            >
+                <ButtonGroup  size="large" aria-label="Large button group"  >
+                    <Icon><Flag color='error'/></Icon>
+                    <Button onClick={() => changeLanguaje('es')} variant="text"  sx={{fontSize: '1rem', color: 'GrayText'}}>ES</Button>
+                    <Button onClick={() => changeLanguaje('fr')} variant="text"  sx={{fontSize: '1rem', color: 'GrayText'}}>FR</Button>
+                    <Button onClick={() => changeLanguaje('en')} variant="text"  sx={{fontSize: '1rem', color: 'GrayText'}}>EN</Button>
+                    <Button onClick={() => changeLanguaje('ca')} variant="text"  sx={{fontSize: '1rem', color: 'GrayText'}}>CA</Button>
+                </ButtonGroup>
+              </Grid>
       <form  onSubmit={ registerSubmit } 
             className="animate__animated animate__fadeIn animate__faster"
       >
@@ -48,7 +72,7 @@ export const RegisterPage = () => {
                   <TextField 
                     label="Nombre completo" 
                     type="text" 
-                    placeholder="Nombre completo"
+                    placeholder={t('Name')}
                     fullWidth
                     name="registerName"
                     value={ registerName }
@@ -73,7 +97,7 @@ export const RegisterPage = () => {
                   <TextField 
                     label="Contraseña" 
                     type="password" 
-                    placeholder="Contraseña"
+                    placeholder={t('Password')}
                     fullWidth 
                     name="registerPassword"
                     value={ registerPassword }
@@ -85,7 +109,7 @@ export const RegisterPage = () => {
                   <TextField 
                     label="Contraseña" 
                     type="password" 
-                    placeholder="Repita contraseña"
+                    placeholder={t('Password1')}
                     fullWidth 
                     name="registerPassword2"
                     value={ registerPassword2 }
@@ -108,7 +132,7 @@ export const RegisterPage = () => {
                 <Grid container direction="row" justifyContent="end">
                   <Typography sx={{ mr: 1 }}>¿Ya tienes cuenta?</Typography>
                   <Link component={ RouterLink } color='inherit' to="/auth/login">
-                    ingresar
+                        Ingresar
                   </Link>
                     
                   

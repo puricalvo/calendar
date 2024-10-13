@@ -11,9 +11,6 @@
         "Date": "Date",
         "Time": "Hour",
         "Event": "Event",
-        "NoEventsInRange": "There are no events in this range",
-        "showMore": "+ show more ({{total}})"
-       
-        
-    
+        "NoEventsInRange": "No events in this range",
+        "showMore": "+ See more ({{total}})"  
 }

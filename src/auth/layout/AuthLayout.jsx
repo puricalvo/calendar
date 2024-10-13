@@ -1,7 +1,9 @@
-import { Grid, Typography } from "@mui/material";
+
+import {  Grid,  Typography } from "@mui/material";
 
 
 export const AuthLayout = ({ children, title = '' }) => {
+
   return (
     <Grid
       container
@@ -12,6 +14,7 @@ export const AuthLayout = ({ children, title = '' }) => {
       sx={{ minHeight: '100vh', backgroundColor: 'primary.main', padding: 2 }}
     >
 
+                
     <Grid item
       className="box-shadow"
       xs={ 3 }

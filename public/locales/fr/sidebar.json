@@ -1,9 +1,10 @@
 
     {
         
-        "Subtltle": "Services et messagerie",
+        "Subtltle": "Services et Messagerie",
         "subTitle2": "pour ce jour:",
         "Button1": "Marquer comme lu",
-        "Button2": "Voir la fiche conducteur",
-        "postedOn": "{{  date, dd/mm/yyyy }}"
+        "Button2": "Voir fiche pilote"
     }
+
+  

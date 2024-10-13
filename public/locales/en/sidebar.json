@@ -1,10 +1,9 @@
 
 
     {
-        "Welcome": "Welcome...",
+        
         "Subtltle": "Services and Messaging",
         "subTitle2": "for this day",
         "Button1": "Mark as read",
-        "Button2": "See driver's sheet",
-        "postedOn": "{{  date, dd/mm/yyyy }}"
+        "Button2": "View driver's sheet"
     }

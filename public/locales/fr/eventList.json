@@ -12,7 +12,8 @@
         "Time": "Heure",
         "Event": "Événement",
         "NoEventsInRange": "Il n'y a aucun événement dans cette plage",
-        "showMore": "afficher plus ({{total}})"
+        "showMore": " + Voir plus ({{total}})"
         
     
 }
+

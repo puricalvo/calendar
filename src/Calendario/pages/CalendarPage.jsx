@@ -5,8 +5,9 @@ import 'react-big-calendar/lib/css/react-big-calendar.css';
 
 import { TareaMes, CalendarEvent, CalendarModal, FabAddNew, FabDelete } from '../components';
 import { useAuthStore, useCalendarStore, useUiStore } from '../../hooks';
-import {  eventList, localizer } from '../../helpers';
-import { Grid, Select } from '@mui/material';
+import {  getMessagesCA, getMessagesEN, getMessagesES, getMessagesFR, localizer } from '../../helpers';
+import { Divider } from '@mui/material';
+
 
 
 
@@ -15,15 +16,11 @@ import { Grid, Select } from '@mui/material';
 
 export const CalendarPage = () => {
 
-    const { t, i18n } = useTranslation('eventList');
+    const { i18n } = useTranslation();
 
-    const changeLanguage = (lng) => {
-      i18n.changeLanguage(lng);     // Cambiar idioma con dayjs
-    };
-
-    const [language, setLanguage] = useState('en')
-
-    // const _localizer = localizer('es');
+    
+    const [language, setLanguage] = useState(i18n.language); 
+    
 
     const { user } = useAuthStore();
     const { openDateModal } = useUiStore(); 
@@ -65,22 +62,46 @@ export const CalendarPage = () => {
     useEffect(() => {
       startLoadingEvents(); 
     }, [])
-    
+
+    const changeLanguage = (lng) => {
+      i18n.changeLanguage(lng);  // Cambiar idioma en i18next
+      setLanguage(lng);          // Cambiar idioma en el estado local
+    };
+
+
+    const getMessages = (lng) => {
+      switch (lng) {
+          case 'es':
+              return getMessagesES();
+          case 'en':
+              return getMessagesEN();
+          case 'fr':
+              return getMessagesFR();
+          case 'ca':
+              return getMessagesCA();
+          // Agregar más casos según sea necesario
+          default:
+              return getMessagesES(); // Idioma por defecto
+      }
+  };
+
     
   return (
     <>
         <TareaMes/>
-        <div>
-        <select onChange={(e) => changeLanguage(e.target.value)} value={i18n.language}>
+
+        <div >
+        <select onChange={(e) => changeLanguage(e.target.value)} value={language}>
             <option value="en">English</option>
             <option value="es">Español</option>
             <option value="fr">Français</option>
             <option value="ca">Catalan</option>
         </select>
         </div>
-        
+        <Divider/>
         <Calendar
-          culture={ i18n.language }
+          className='dias'
+          culture={ language }
           localizer={ localizer }
           events={ events }
           defaultView={ lastView }
@@ -94,6 +115,8 @@ export const CalendarPage = () => {
           onDoubleClickEvent={ onDoubleClick }
           onSelectEvent={ onSelect }
           onView={ onViewChanged } 
+          messages={ getMessages(language) }
+          
         />
 
 

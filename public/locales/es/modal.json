@@ -9,5 +9,6 @@
         "Descripcion": "Una descripción corta",
         "NotasPlaceholder": "Introduzca las notas",
         "Informacion": "Información adicional",
-        "Boton": "Guardar"
+        "Boton": "Guardar",
+        "postedOn": "{{  date, dd/mm/yyyy }}"
     }
