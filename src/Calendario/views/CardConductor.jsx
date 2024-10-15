@@ -1,7 +1,5 @@
 import {   Divider,  Grid } from "@mui/material";
-import {  DatePike, CardList  } from "../components";
-import { useCalendarStore } from "../../hooks";
-import { useEffect } from "react";
+import {  DatePike, CardList, MensageConductor  } from "../components";
 
 
 
@@ -12,7 +10,7 @@ import { useEffect } from "react";
 
 export const CardConductor = () => {
 
-  const { events } = useCalendarStore();
+  
 
    
   
@@ -57,7 +55,7 @@ export const CardConductor = () => {
       justifyContent='center'
       sx={{ mt: 4 }}  
     >
-        
+        <MensageConductor/>
     </Grid>
      
  </Grid>

@@ -8,24 +8,11 @@ import { useTranslation } from "react-i18next";
 import DeleteIcon from '@mui/icons-material/Delete';
 
 
-
-
-
-
-
   
-  
-  
-  export const MessagesConductor = () => {
+  export const MensageConductor = () => {
       
-    
-    
-    
+   
     const { t } = useTranslation('mensajesConductor');
-
-    
-
-  
 
 
   return (
@@ -64,16 +51,16 @@ import DeleteIcon from '@mui/icons-material/Delete';
                         >
                           <DeleteIcon fontSize="inherit"/>
                         </IconButton>
-                      <Grid container>
+                      <Grid >
                         
-                        <ListItemText>hola que tal el dia</ListItemText>
+                        <ListItemText> - hola que tal el dia</ListItemText>
                       </Grid>        
                    
                   </ListItem>
               </List>    
 
             
-                <Grid>
+                <Grid >
                 <IconButton  aria-label={0} type="button" >
                     <Badge badgeContent={0} color="error">
                         <MailIcon /> 

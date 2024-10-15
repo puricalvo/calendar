@@ -1,7 +1,7 @@
 
 // Componentes de mi page...
 export * from './DatePike';
-export * from './MessagesConductor';
+export * from './MensageConductor';
 export * from './Navbar';
 export * from './Sidebar';
 export * from './Sidebar2';
