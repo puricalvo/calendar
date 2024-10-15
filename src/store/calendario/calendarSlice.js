@@ -30,7 +30,7 @@ export const calendarSlice = createSlice({
        },
        // Funcion que crea un nuevo evento y limpia el modal...
        onAddNewEvent: ( state, { payload }) => {
-            state.events.push( payload ); // Funcion para agragar una nueva nota..
+            state.events.push( payload ); // Funcion para agregar una nueva nota..
             state.activeEvent = null; // Limpia el modal..
        },
        // Funcion para actualizar un event que ya existe..

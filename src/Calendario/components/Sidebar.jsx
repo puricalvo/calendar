@@ -44,7 +44,8 @@ export const Sidebar = () => {
           sx={{
             display:'flex',
             flexwrap: 'wrap',
-            width: '100%'
+            width: '100%',
+            
           }}
             >
             
@@ -80,7 +81,8 @@ export const Sidebar = () => {
           sx={{
             display:'flex',
             flexwrap: 'wrap',
-            width: '80%'
+            width: '80%',
+            
           }}
         >
            

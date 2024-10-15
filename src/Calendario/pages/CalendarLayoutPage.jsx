@@ -21,6 +21,7 @@ export const CalendarLayoutPage = () => {
           <Grid container
             justifyContent='center'
             padding='2'
+            sx={{ mt: 3}}
           >
                 
                 <Navbar />

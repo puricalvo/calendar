@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { authSlice, calendarSlice, badgeSlice, uiSlice } from './';
+import { authSlice, calendarSlice, badgeSlice, uiSlice} from './';
 
 //  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
  

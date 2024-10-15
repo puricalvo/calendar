@@ -10,7 +10,6 @@ import SearchIcon from '@mui/icons-material/Search';
 
 
 
-
 export const Navbar = () => {
 
   
@@ -44,10 +43,9 @@ export const Navbar = () => {
 
                 <Grid size={{ xs:12, md: 2,  }} sx={{ flexGrow: 'auto',}} >
                   
+                  
                     <IconButton size='large'>
-                    
-                      <AirportShuttleIcon color='error' sx={{fontSize: '3rem',  }}/>   
-                    
+                      <AirportShuttleIcon color='error' sx={{fontSize: '3rem',  }}/> 
                     </IconButton>
                 </Grid>
 

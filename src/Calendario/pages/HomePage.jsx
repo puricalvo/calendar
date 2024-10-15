@@ -19,7 +19,7 @@ export const HomePage = ({ children }) => {
           padding='1' 
           justifyContent='center' 
           alignItems='center'
-          sx={{ display: 'flex', flexwrap: 'wrap', width: "100%" }}
+          sx={{ display: 'flex', flexwrap: 'wrap', width: "100%", mt: 3 }}
         >
         
 
@@ -35,7 +35,7 @@ export const HomePage = ({ children }) => {
           padding='1' 
           justifyContent='center' 
           alignItems='center'
-          sx={{ display: 'flex', flexwrap: 'wrap', width: "100%",  }}
+          sx={{ display: 'flex', flexwrap: 'wrap', width: "100%", mt: 3 }}
         >  
 
                       <Sidebar />

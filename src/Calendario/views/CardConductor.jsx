@@ -1,52 +1,52 @@
-import {  Card, Divider,  Grid } from "@mui/material";
-import {  DatePike, MessagesConductor, CardList  } from "../components";
+import {   Divider,  Grid } from "@mui/material";
+import {  DatePike, CardList  } from "../components";
+import { useCalendarStore } from "../../hooks";
+import { useEffect } from "react";
 
 
 
-const events = {
-  notes: 'tienes que recoger el coche mañana',
-  user: {
-    _id: '123',
-    name: 'Justo'
-  }
-}
+
+
 
 
 
 export const CardConductor = () => {
 
+  const { events } = useCalendarStore();
+
+   
   
 
   return (
      <Grid container 
      className="animate__animated animate__fadeIn animate__faster"  
-     direction='row' 
-     justifyContent='center' 
+     direction='row'
+     justifyContent='center'
      alignItems='center'
      padding='3'
-     sx={{ display: 'flex',  }}
+     spacing={2}
+     sx={{ display: 'flex', mt: 4 }}
      > 
-    <Grid container
-      direction='row'
-      justifyContent='space-around'
-
-    >
-        
-    </Grid>
+   
     
-    <Grid item size={{ xs: 12, sm:6,   }}    
-      sx={{ borderRadius: 2}}
+    <Grid item   size={{ xs: 4 }}    
+      sx={{ borderRadius: 2, justifyContent:'space-around', mt:4}}
     >
       <DatePike/>
     </Grid>
     
     <Divider/>
-    <Card
-        
-       sx={{ flexBasis: '60em',  padding: 0, border: 0,  justifyContent:'space-between',flexwrap: 'wrap'}}>
+
+    <Grid item size={{ xs: 8 }} 
+      sx={{ flexBasis: '65em',  
+        padding: 0, 
+        border: 0, 
+        flexwrap: 'wrap', mt: 4}}>
        
-               <CardList />  
-  </Card>
+              
+               <CardList  />  
+    
+    </Grid>
 
 
   <Divider/>
@@ -54,11 +54,10 @@ export const CardConductor = () => {
     <Grid 
       container
       direction='row'
-      justifyContent='center'  
+      justifyContent='center'
+      sx={{ mt: 4 }}  
     >
-        <MessagesConductor
-          events={events} 
-        />
+        
     </Grid>
      
  </Grid>

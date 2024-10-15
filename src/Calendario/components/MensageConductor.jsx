@@ -1,47 +1,31 @@
-import { useDispatch, useSelector } from "react-redux";
+
 
 import {  Badge,  Grid, Icon,  IconButton,  List,  ListItem,   ListItemIcon,  ListItemText,  Typography, Checkbox } from "@mui/material";
 import MailIcon from '@mui/icons-material/Mail';
 import CommentRoundedIcon from '@mui/icons-material/CommentRounded';
-import { decrement, increment } from "../../store";
+
 import { useTranslation } from "react-i18next";
 import DeleteIcon from '@mui/icons-material/Delete';
-import { useAuthStore } from "../../hooks/useAuthStore";
-import { useState } from "react";
 
 
 
-const notificationsLabel = (count) => {
-  if (count === 0) {
-    return 'no notifications';
-  }
-  if (count > 99) {
-    return 'more than 99 notifications';
-  }
-  return `${count} notifications`;
-}
+
+
 
 
   
   
   
-  export const MessagesConductor = ({events}) => {
+  export const MessagesConductor = () => {
       
     
-    const { user } = useAuthStore();
-
-    const { notes } = events;
+    
     
     const { t } = useTranslation('mensajesConductor');
-    // console.log('Current Language:', i18n.language);
-    // console.log('Translations:', i18n.getFixedT()('Title'));
 
-    const { counter } = useSelector( state => state.badge );
-    const dispatch = useDispatch();
+    
 
-   const onSelect = (events) => {
-      console.log({ click: events })
-   }
+  
 
 
   return (
@@ -70,19 +54,19 @@ const notificationsLabel = (count) => {
                       <ListItemIcon>
                        
                         <Checkbox 
-                          onClick={onSelect}
+                         
                         />
                       </ListItemIcon>
                         <IconButton 
                           aria-label="delete" 
                           size="medium" 
-                          onClick={ onSelect }
+                          
                         >
                           <DeleteIcon fontSize="inherit"/>
                         </IconButton>
                       <Grid container>
-                        <Typography variant="h5">{ user.name }:  - </Typography>
-                        <ListItemText>{ notes }</ListItemText>
+                        
+                        <ListItemText>hola que tal el dia</ListItemText>
                       </Grid>        
                    
                   </ListItem>
@@ -90,8 +74,8 @@ const notificationsLabel = (count) => {
 
             
                 <Grid>
-                <IconButton  aria-label={0} type="button" onClick={ () => dispatch( increment() )}>
-                    <Badge badgeContent={counter} color="error">
+                <IconButton  aria-label={0} type="button" >
+                    <Badge badgeContent={0} color="error">
                         <MailIcon /> 
                     </Badge>
                 </IconButton>
