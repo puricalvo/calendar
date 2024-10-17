@@ -65,8 +65,9 @@ export const Navbar = () => {
                       variant="text" 
                       color="error" 
                       sx={{  mr: 0, ml: '2px'}}>
+                        <Link component={ RouterLink } color='inherit' to="/message">  
                         <HomeIcon sx={{fontSize: '2rem', display: { xs: "none", md: "inline-flex" }}}/>
-                        
+                        </Link>
                     </Button>
                     <Button variant="text"  color="error"sx={{ mr: 0, ml: '-2px', mt: 1}}><SearchIcon sx={{fontSize: '2rem', display: { xs: "none", md: "inline-flex" }}} /></Button>
                     <Button  

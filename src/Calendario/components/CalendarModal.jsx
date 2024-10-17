@@ -53,7 +53,6 @@ export const CalendarModal = () => {
   const [formSubmitted, setFormSubmitted] = useState(false);
 
  
- 
 
   // Valores del formulario
   const [formValues, setFormValues] = useState({
@@ -214,6 +213,10 @@ export const CalendarModal = () => {
             </button>
 
         </form>
+        <br />
+        
+        
     </Modal>
+
   )
 }

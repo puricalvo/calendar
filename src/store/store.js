@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import { authSlice, calendarSlice, badgeSlice, uiSlice} from './';
+import { authSlice, calendarSlice,  messagesSlice,  uiSlice, } from './';
 
 //  const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
  
@@ -9,7 +9,7 @@ export const store = configureStore({
       auth: authSlice.reducer,
       calendario: calendarSlice.reducer,
       uiCalendar: uiSlice.reducer,
-      badge: badgeSlice.reducer,
+      messages: messagesSlice.reducer,
   },
   middleware: (getDefaultMiddleware) => getDefaultMiddleware({
     serializableCheck: false

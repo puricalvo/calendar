@@ -1,16 +1,10 @@
 import {   Divider,  Grid } from "@mui/material";
-import {  DatePike, CardList, MensageConductor  } from "../components";
-
-
-
-
+import {  DatePike, CardList, MensageEvent  } from "../components";
 
 
 
 
 export const CardConductor = () => {
-
-  
 
    
   
@@ -55,7 +49,7 @@ export const CardConductor = () => {
       justifyContent='center'
       sx={{ mt: 4 }}  
     >
-        <MensageConductor/>
+        <MensageEvent/>
     </Grid>
      
  </Grid>

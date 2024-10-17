@@ -22,8 +22,9 @@ export const HomePage = ({ children }) => {
           sx={{ display: 'flex', flexwrap: 'wrap', width: "100%", mt: 3 }}
         >
         
-
+        
                       <Navbar />
+        
                       <Divider/>
         </Grid>
                

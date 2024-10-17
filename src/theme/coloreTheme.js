@@ -7,7 +7,7 @@ export const coloreTheme = createTheme({
             main: '#ff1744 ' // Rojo
         },
         secondary: {
-            main: '#1e88e5' // Azul
+            main: '#aeb6bf' // Azul
         },
         error: {
             main: red.A400 // rojo
