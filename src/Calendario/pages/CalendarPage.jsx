@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import { Calendar } from 'react-big-calendar';
 import { useTranslation } from 'react-i18next';
 import 'react-big-calendar/lib/css/react-big-calendar.css';
@@ -88,7 +88,9 @@ export const CalendarPage = () => {
     
   return (
     <>
+      <Suspense fallback={<div>Loading translations...</div>}>
         <TareaMes/>
+      </Suspense>
 
         <div >
         <select onChange={(e) => changeLanguage(e.target.value)} value={language}>
@@ -122,7 +124,7 @@ export const CalendarPage = () => {
 
           <CalendarModal />
 
-          //Botones Flotantes...
+          {/* Botones flotantes */}
           <FabAddNew />
           <FabDelete />
 

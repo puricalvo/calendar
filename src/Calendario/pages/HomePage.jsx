@@ -2,6 +2,7 @@
 import { Divider, Grid, Toolbar } from "@mui/material";
 import { Navbar } from "../components/Navbar";
 import { Sidebar } from "../components/Sidebar";
+import { Suspense } from "react";
 
 
 export const HomePage = ({ children }) => {
@@ -13,7 +14,7 @@ export const HomePage = ({ children }) => {
     
     
     
-    <Grid container
+    <Grid container 
           className="animate__animated animate__fadeIn animate__faster" 
           direction='row'  
           padding='1' 
@@ -22,15 +23,16 @@ export const HomePage = ({ children }) => {
           sx={{ display: 'flex', flexwrap: 'wrap', width: "100%", mt: 3 }}
         >
         
-        
-                      <Navbar />
+                      <Suspense fallback={<div>Loading translations...</div>}>
+                          <Navbar />
+                      </Suspense>
         
                       <Divider/>
         </Grid>
                
                       
 
-        <Grid container
+        <Grid container 
           className="animate__animated animate__fadeIn animate__faster" 
           direction='row'  
           padding='1' 
@@ -38,8 +40,9 @@ export const HomePage = ({ children }) => {
           alignItems='center'
           sx={{ display: 'flex', flexwrap: 'wrap', width: "100%", mt: 3 }}
         >  
-
+                    <Suspense fallback={<div>Loading translations...</div>}>
                       <Sidebar />
+                    </Suspense>
                       <Divider/>
         
         </Grid>

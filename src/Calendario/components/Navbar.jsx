@@ -49,7 +49,7 @@ export const Navbar = () => {
                     </IconButton>
                 </Grid>
 
-                <Grid size={{ xs: 12, md: 4,  }} sx={{ flexGrow: 'auto', display: { xs: "none", md: "inline-flex" } }} >
+                <Grid size={{ xs: 12, md: 4,  }} sx={{ flexGrow: 'auto', display: {  md: "inline-flex" } }} >
                   <Typography variant='h2'  component='div' sx={{fontFamily:'serif', color:'GrayText' }}>
                      {t('Welcome')}
                     <Typography variant='h4' component='span' sx={{ color:'black'}}>{ user.name }</Typography>
@@ -66,10 +66,10 @@ export const Navbar = () => {
                       color="error" 
                       sx={{  mr: 0, ml: '2px'}}>
                         <Link component={ RouterLink } color='inherit' to="/message">  
-                        <HomeIcon sx={{fontSize: '2rem', display: { xs: "none", md: "inline-flex" }}}/>
+                        <HomeIcon sx={{fontSize: '2rem', display: { md: "inline-flex" }}}/>
                         </Link>
                     </Button>
-                    <Button variant="text"  color="error"sx={{ mr: 0, ml: '-2px', mt: 1}}><SearchIcon sx={{fontSize: '2rem', display: { xs: "none", md: "inline-flex" }}} /></Button>
+                    <Button variant="text"  color="error"sx={{ mr: 0, ml: '-2px', mt: 1}}><SearchIcon sx={{fontSize: '2rem', display: {  md: "inline-flex" }}} /></Button>
                     <Button  
                       variant="text" 
                       color="error"
@@ -79,6 +79,7 @@ export const Navbar = () => {
                         
                     </Button>
                 <ButtonGroup  size="large" aria-label="Large button group" >
+                    <Icon><Flag color='error'/></Icon>
                     <Button onClick={() => changeLanguaje('es')} variant="text"  sx={{fontSize: '1rem', color: 'GrayText'}}>ES</Button>
                     <Button onClick={() => changeLanguaje('fr')} variant="text"  sx={{fontSize: '1rem', color: 'GrayText'}}>FR</Button>
                     <Button onClick={() => changeLanguaje('en')} variant="text"  sx={{fontSize: '1rem', color: 'GrayText'}}>EN</Button>

@@ -1,8 +1,8 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = {
+// const initialState = {
   
-};
+// };
 
  export const messagesSlice = createSlice({
   name: 'messages',
@@ -29,13 +29,13 @@ const initialState = {
       deleteMessage: (state, action) => {
         state.messages = state.messages.filter(msg => msg.id !== action.payload);
       },
-      setLoading: (state, action) => {
+      setLoadingA: (state, action) => {
         state.isLoading = action.payload;
       }
     },
   });
   
-  export const { setMessages, addMessage, updateMessage, deleteMessage, setLoading } = messagesSlice.actions;
+  export const { setMessages, addMessage, updateMessage, deleteMessage, setLoadingA } = messagesSlice.actions;
   
   
 

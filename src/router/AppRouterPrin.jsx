@@ -4,7 +4,7 @@ import { HomeRoutes } from "../Calendario/routes/HomeRoutes";
 import { useAuthStore } from "../hooks";
 import {  useEffect } from "react";
 
-export const AppRouter = () => {
+export const AppRouterPrin = () => {
 
 
     const { status, checkAuthToken } = useAuthStore();

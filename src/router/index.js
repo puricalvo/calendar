@@ -1,3 +1,3 @@
 
 
-export * from './AppRouter';
+export * from './AppRouterPrin';

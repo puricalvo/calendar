@@ -1,10 +1,15 @@
 {
-    "Title": "Create account",
+    
     "Name": "Full name",
-    "Email": "Mail",
+    "Email": "Mail@google.com",
+    "Login": "Login",
+    "Mail": "Mail",
     "Password": "Password",
     "Password1": "Repeat password",
-    "Button": "Create account",
-    "Button1": "login"
+    "Createaccount": "Create account",
+    "enter": "Enter",
+    "Alreadyhaveanaccount?": "¿Already have an account?"
+    
+    
 }
 

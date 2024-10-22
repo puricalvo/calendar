@@ -1,12 +1,12 @@
 import { Link as RouterLink } from 'react-router-dom';
-import {  Box, Button, ButtonGroup, Grid,  Icon,  Link,  TextField, Typography } from "@mui/material";
+import {   Button, ButtonGroup, Grid,  Icon,  Link,  TextField, Typography } from "@mui/material";
 import { AuthLayout } from "../layout/AuthLayout";
 import { useAuthStore, useForm } from "../../hooks";
 import Swal from 'sweetalert2';
-import { useEffect } from 'react';
+import { Suspense, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flag } from '@mui/icons-material';
-
+import {es,fr, ca, enUS} from 'date-fns/locale';
 
 const registerFormFields = {
    registerName: '',
@@ -16,11 +16,20 @@ const registerFormFields = {
 
 }
 
+const localesMap = {
+  es: es,
+  fr: fr,
+  ca: ca,
+  en: enUS
+}
+
 
 
 export const RegisterPage = () => {
 
   const {  t, i18n } = useTranslation('register');
+  console.log('Current Language:', i18n.language);
+  console.log('Translations:', i18n.getFixedT()('Createaccount'));
   
   const changeLanguaje = (lng) => {
     i18n.changeLanguage(lng); // Cambia el idioma de forma asincrónica 
@@ -43,18 +52,13 @@ export const RegisterPage = () => {
       Swal.fire('Error en la autenticación', errorMessage, 'error');
     }
   }, [errorMessage])
+
+  const locale = localesMap[i18n.changeLanguage] || localesMap['en'];
   
   return (
-                <AuthLayout title="Crear cuenta">
-            <Grid container direction='row' 
-                  justifyContent='space-between' 
-                  alignItems='center'
-                  padding='2'
-                  sx={{
-                    display:'flex',
-                    flexwrap: 'wrap',
-                  }} 
-            >
+
+    <Suspense fallback={<div>Loading translations...</div>}>
+                <AuthLayout title={t('Createaccount')}>
                 <ButtonGroup  size="large" aria-label="Large button group"  >
                     <Icon><Flag color='error'/></Icon>
                     <Button onClick={() => changeLanguaje('es')} variant="text"  sx={{fontSize: '1rem', color: 'GrayText'}}>ES</Button>
@@ -62,7 +66,8 @@ export const RegisterPage = () => {
                     <Button onClick={() => changeLanguaje('en')} variant="text"  sx={{fontSize: '1rem', color: 'GrayText'}}>EN</Button>
                     <Button onClick={() => changeLanguaje('ca')} variant="text"  sx={{fontSize: '1rem', color: 'GrayText'}}>CA</Button>
                 </ButtonGroup>
-              </Grid>
+              
+           
       <form  onSubmit={ registerSubmit } 
             className="animate__animated animate__fadeIn animate__faster"
       >
@@ -70,50 +75,53 @@ export const RegisterPage = () => {
 
                 <Grid item xs={ 12 } sx={{ mt: 2 }}>
                   <TextField 
-                    label="Nombre completo" 
+                    label={t('Name')} 
                     type="text" 
                     placeholder={t('Name')}
                     fullWidth
                     name="registerName"
                     value={ registerName }
                     onChange={ onRegisterInputChange }
+                    locale={locale}
                   />
                 </Grid>
 
                 <Grid item xs={ 12 } sx={{ mt: 2 }}>
                   <TextField 
-                    label="Correo" 
+                    label={t('Mail')} 
                     type="email" 
-                    placeholder="correo@google.com"
+                    placeholder={t('Email')}
                     fullWidth
                     name="registerEmail"
                     value={ registerEmail }
                     onChange={ onRegisterInputChange }
-
+                    locale={locale}
                   />
                 </Grid>
 
                 <Grid item xs={ 12 } sx={{ mt: 2 }}>
                   <TextField 
-                    label="Contraseña" 
+                    label={t('Password')} 
                     type="password" 
                     placeholder={t('Password')}
                     fullWidth 
                     name="registerPassword"
                     value={ registerPassword }
-                    onChange={ onRegisterInputChange } 
+                    onChange={ onRegisterInputChange }
+                    locale={locale} 
                   />
                 </Grid>
 
                 <Grid item xs={ 12 } sx={{ mt: 2 }}>
                   <TextField 
-                    label="Contraseña" 
+                    label={t('Password')} 
                     type="password" 
                     placeholder={t('Password1')}
                     fullWidth 
                     name="registerPassword2"
                     value={ registerPassword2 }
                     onChange={ onRegisterInputChange } 
+                    locale={locale}
                   />
                 </Grid>
 
@@ -124,15 +132,15 @@ export const RegisterPage = () => {
                         variant="contained" 
                         fullWidth
                       >
-                        Crear cuenta
+                        {t('Createaccount')}
                       </Button>
                     </Grid> 
                  </Grid> 
                  
                 <Grid container direction="row" justifyContent="end">
-                  <Typography sx={{ mr: 1 }}>¿Ya tienes cuenta?</Typography>
+                  <Typography sx={{ mr: 1 }}>{t('Alreadyhaveanaccount?')}</Typography>
                   <Link component={ RouterLink } color='inherit' to="/auth/login">
-                        Ingresar
+                     {t('enter')}
                   </Link>
                     
                   
@@ -145,7 +153,7 @@ export const RegisterPage = () => {
           </form>
     </AuthLayout>
 
-          
+    </Suspense>       
 
 
     

@@ -5,7 +5,8 @@ export * from './MensageEvent';
 export * from './Navbar';
 export * from './Sidebar';
 export * from './Sidebar2';
-export * from './CardList';
+export * from './Card';
+// export * from './CardServices';
 
 //Componentes de pa otra page...
 export * from './CalendarEvent';

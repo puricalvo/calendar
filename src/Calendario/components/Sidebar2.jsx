@@ -39,17 +39,17 @@ export const Sidebar2 = () => {
      
 
         <Grid item size={{ xs: 12, md: 3 }}  sx={{ flexGrow: 'auto', mt: 3, p: 2, justifyContent: ' center'}}>
-                <Typography variant='h3' component='div' color='black' sx={{ p:1, display: { xs: "none", md: "inline-flex" } }}>
+                <Typography variant='h3' component='div' color='black' sx={{ p:1, display: { md: "inline-flex" } }}>
                      {t('Subtltle')}
                 </Typography>
-                <Typography variante='p' fontSize={20} component='small' sx={{ p:0, display: { xs: "none", md: "inline-flex" } }}>
+                <Typography variante='p' fontSize={20} component='small' sx={{ p:0, display: { md: "inline-flex" } }}>
                       {t('subTitle2')} 
                 </Typography>
-                <Typography variant="h6" component='small' sx={{ p:0, display: { xs: "none", md: "inline-flex" } }}>
+                <Typography variant="h6" component='small' sx={{ p:0, display: {  md: "inline-flex" } }}>
                 {formattedDate} 
                 </Typography>
             <ButtonGroup variant="outlined" component='small'  size="large" aria-label="large button group" sx={{ p:1 }} >
-            <Button  color="error" sx={{ fontSize: '0.75rem', mr: 0, ml: '-2px'}}>{t('Button1')}</Button>
+            {/* <Button  color="error" sx={{ fontSize: '0.75rem', mr: 0, ml: '-2px'}}>{t('Button1')}</Button> */}
             <Button    
               color="error" 
               sx={{ fontSize: '0.75rem', mr: 0, ml: '-2px'}}>

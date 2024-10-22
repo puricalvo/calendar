@@ -1,10 +1,13 @@
 {
-    "Title": "Créer un compte",
+    
     "Name": "Nom et prénom",
-    "Email": "Courrier",
+    "Email": "Courrier@google.com",
+    "Login": "Se connecter",
+    "Mail": "Courrier",
     "Password": "Mot de passe",
     "Password1": "Répéter le mot de passe",
-    "Button": "Créer un compte",
-    "Button1": "entrer"
+    "Createaccount": "Créer un compte",
+    "enter": "entrer",
+    "Alreadyhaveanaccount?": "¿Vous avez déjà un compte ?"
 }
 

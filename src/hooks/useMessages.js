@@ -1,7 +1,7 @@
 // src/hooks/useMessages.js
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useCallback } from 'react';
-import { setLoading, setMessages, addMessage, deleteMessage, updateMessage } from '../store'; // Importa las acciones del slice
+import { setLoading, setMessages, addMessage, deleteMessage, updateMessage, setLoadingA } from '../store'; // Importa las acciones del slice
 import calendarApi from '../api/calendarApi'; // Importa tu API
 import Swal from 'sweetalert2'; // Importa la librería de notificaciones
 
@@ -13,7 +13,7 @@ export const useMessages = () => {
 
   // Función para cargar los mensajes desde la API
   const loadMessages = useCallback(async () => {
-    dispatch(setLoading(true));
+    dispatch(setLoadingA(true));
     try {
       const { data } = await calendarApi.get('/messages');
       
@@ -27,7 +27,7 @@ export const useMessages = () => {
       console.error('Error cargando los mensajes:', error);
       Swal.fire('Error', 'No se pudieron cargar los mensajes', 'error');
     } finally {
-      dispatch(setLoading(false));
+      dispatch(setLoadingA(false));
     }
   }, [dispatch]);
 

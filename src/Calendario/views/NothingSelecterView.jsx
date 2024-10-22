@@ -10,7 +10,7 @@ export const NothingSelecterView = () => {
   return (
     
     <Grid
-        container
+        container 
         className="animate__animated animate__fadeIn animate__faster" 
         direction="row"
         alignItems="center"

@@ -1,9 +1,13 @@
 {
-    "Title": "Crear compte",
+    
     "Name": "Nom complet",
-    "Email": "Correu",
+    "Email": "Correu@google.com",
+    "Login": "Inicieu sessió",
+    "Mail": "Correu",
     "Password": "Contrasenya",
     "Password1": "Repetiu contrasenya",
-    "Button": "Crear compte",
-    "Button1": "ingressar"
+    "Createaccount": "Crear compte",
+    "enter": "Entrar",
+    "Alreadyhaveanaccount?": "¿Ja tens un compte? "
+    
 }

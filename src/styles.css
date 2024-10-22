@@ -96,5 +96,32 @@
 .rbc-button-link {
     text-transform: capitalize;
 }
- 
+
+
+
+
+
+/* Estilos para pantallas grandes */
+@media (min-width: 1024px) {
+    .container {
+      max-width: 1200px;
+      margin: 0 auto; /* Centrar el contenedor */
+    }
+  }
+  
+  /* Estilos para pantallas medianas */
+  @media (max-width: 1023px) and (min-width: 768px) {
+    .container {
+      max-width: 768px;
+      margin: 0 auto;
+    }
+  }
+  
+  /* Estilos para pantallas pequeñas (móviles) */
+  @media (max-width: 767px) {
+    .container {
+      max-width: 100%;
+      padding: 0 10px;
+    }
+  }
   

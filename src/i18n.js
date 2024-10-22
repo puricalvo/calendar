@@ -21,7 +21,7 @@ i18n
     backend: {
       loadPath: './locales/{{lng}}/{{ns}}.json' // Ruta para cargar los archivos JSON de traducción
     },
-    ns: ['common', 'datePicke', 'login', 'sidebar', 'navbar', 'modal', 'messages','register', 'eventList','mensajesConductor', 'cardList'], // Namespaces: un archivo JSON por sección
+    ns: ['common', 'datePicke','sidebar', 'navbar', 'modal', 'messages','register', 'eventList','mensajesConductor', 'cardList'], // Namespaces: un archivo JSON por sección
     defaultNS: 'common', // Namespace por defecto
     interpolation: {
       escapeValue: false ,// React ya maneja la seguridad de los valores

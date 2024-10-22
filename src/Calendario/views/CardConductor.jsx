@@ -1,13 +1,12 @@
 import {   Divider,  Grid } from "@mui/material";
-import {  DatePike, CardList, MensageEvent  } from "../components";
+import {  Card,  DatePike,  } from "../components";
+import { Suspense } from "react";
 
 
 
 
 export const CardConductor = () => {
 
-   
-  
 
   return (
      <Grid container 
@@ -21,36 +20,35 @@ export const CardConductor = () => {
      > 
    
     
-    <Grid item   size={{ xs: 4 }}    
+    <Grid item   size={{ xs: 12 }}    
       sx={{ borderRadius: 2, justifyContent:'space-around', mt:4}}
     >
-      <DatePike/>
+      <Suspense fallback={<div>Loading translations...</div>}>
+            <DatePike/>
+      </Suspense>
     </Grid>
     
     <Divider/>
 
-    <Grid item size={{ xs: 8 }} 
+    <Grid item size={{ xs: 12 }} 
       sx={{ flexBasis: '65em',  
         padding: 0, 
         border: 0, 
         flexwrap: 'wrap', mt: 4}}>
        
               
-               <CardList  />  
+               
+       <Suspense fallback={<div>Loading translations...</div>}>
+            <Card/>
+       </Suspense>
+          
+
+              
     
     </Grid>
 
 
-  <Divider/>
-
-    <Grid 
-      container
-      direction='row'
-      justifyContent='center'
-      sx={{ mt: 4 }}  
-    >
-        <MensageEvent/>
-    </Grid>
+  
      
  </Grid>
         
