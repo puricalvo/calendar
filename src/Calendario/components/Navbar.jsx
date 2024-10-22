@@ -3,10 +3,11 @@ import { useTranslation } from 'react-i18next';
 import { useAuthStore } from '../../hooks/useAuthStore';
 
 
-import { Avatar, Button, ButtonGroup,  Divider,  Grid,  IconButton, Link, Typography } from '@mui/material';
+import { Avatar, Button, ButtonGroup,  Divider,  Grid,  Icon,  IconButton, Link, Typography } from '@mui/material';
 import AirportShuttleIcon from '@mui/icons-material/AirportShuttle';
 import HomeIcon from '@mui/icons-material/Home';
 import SearchIcon from '@mui/icons-material/Search';
+import { Flag } from '@mui/icons-material';
 
 
 
@@ -15,8 +16,6 @@ export const Navbar = () => {
   
   
   const { t, i18n } = useTranslation('navbar');
-  console.log('Current Language:', i18n.language);
-  console.log('Translations:', i18n.getFixedT()('subtitle1'));
   
   const changeLanguaje = (lng) => {
     i18n.changeLanguage(lng); // Cambia el idioma de forma asincrónica 

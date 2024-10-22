@@ -5,7 +5,7 @@ import ReactDOM from 'react-dom/client';
 import { Provider } from 'react-redux';
 import { BrowserRouter } from "react-router-dom";
 
-import './i18n'; 
+import 'i18next';
 
 import { Calendario } from './Calendario';
 import { store } from './store';

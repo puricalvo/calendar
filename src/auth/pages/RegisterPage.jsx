@@ -6,7 +6,6 @@ import Swal from 'sweetalert2';
 import { Suspense, useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Flag } from '@mui/icons-material';
-import {es,fr, ca, enUS} from 'date-fns/locale';
 
 const registerFormFields = {
    registerName: '',
@@ -16,12 +15,7 @@ const registerFormFields = {
 
 }
 
-const localesMap = {
-  es: es,
-  fr: fr,
-  ca: ca,
-  en: enUS
-}
+
 
 
 
@@ -53,7 +47,7 @@ export const RegisterPage = () => {
     }
   }, [errorMessage])
 
-  const locale = localesMap[i18n.changeLanguage] || localesMap['en'];
+  
   
   return (
 
@@ -82,7 +76,6 @@ export const RegisterPage = () => {
                     name="registerName"
                     value={ registerName }
                     onChange={ onRegisterInputChange }
-                    locale={locale}
                   />
                 </Grid>
 
@@ -94,8 +87,7 @@ export const RegisterPage = () => {
                     fullWidth
                     name="registerEmail"
                     value={ registerEmail }
-                    onChange={ onRegisterInputChange }
-                    locale={locale}
+                    onChange={ onRegisterInputChange } 
                   />
                 </Grid>
 
@@ -107,8 +99,7 @@ export const RegisterPage = () => {
                     fullWidth 
                     name="registerPassword"
                     value={ registerPassword }
-                    onChange={ onRegisterInputChange }
-                    locale={locale} 
+                    onChange={ onRegisterInputChange } 
                   />
                 </Grid>
 
@@ -121,7 +112,6 @@ export const RegisterPage = () => {
                     name="registerPassword2"
                     value={ registerPassword2 }
                     onChange={ onRegisterInputChange } 
-                    locale={locale}
                   />
                 </Grid>
 

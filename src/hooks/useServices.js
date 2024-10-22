@@ -2,15 +2,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffect, useCallback } from 'react'; // Importa las acciones del slice
 import calendarApi from '../api/calendarApi'; // Importa tu API
 import Swal from 'sweetalert2'; // Importa la librería de notificaciones
-import { addService, deleteService, setLoading, setServices, updateMessage } from '../store';
+import { addService, deleteService, setLoading, setServices, updateService } from '../store';
 
 export const useServices = () => {
   const dispatch = useDispatch();
   const { services = [], isLoading } = useSelector((state) => state.services || {});
 
-  const { user } = useSelector( state => state.auth ); 
+  
 
-  // Función para cargar los mensajes desde la API
+  // Función para cargar los servicios desde la API
   const loadServices = useCallback(async () => {
     dispatch(setLoading(true));
     try {
@@ -34,7 +34,7 @@ export const useServices = () => {
     }
   }, [dispatch]);
   
-  // Función para agregar un nuevo mensaje
+  // Función para agregar un nuevo servicio
   const addNewServices = useCallback(async (servicesSalCoche, servicesHInicio, servicesHFinal, serviceSentCoche, serviceSautobus, servicesMatricula, servicesTipoServicio, servicesCodigo, servicesLInicio, servicesLFinal, servicesObservaciones) => {
     try {
       const { data } = await calendarApi.post('/services', { 
@@ -62,7 +62,7 @@ export const useServices = () => {
       Swal.fire('Error', 'No se pudo agregar el servicio', 'error');
     }
   }, [dispatch]);
-  // Función para eliminar un mensaje
+  // Función para eliminar un servicio
   const removeService = useCallback(async (servicioId) => {
     try {
       await calendarApi.delete(`/services/${servicioId}`);
@@ -73,7 +73,7 @@ export const useServices = () => {
     }
   }, [dispatch]);
 
-  // Función para actualizar un mensaje existente
+  // Función para actualizar un servicio existente
   const modifyService = useCallback(async (service) => {
     try {
       const { data } = await calendarApi.put(`/services/${service.id}`, service);
@@ -97,9 +97,9 @@ export const useServices = () => {
   return {
     services,
     isLoading,
-    loadServices,   // Puedes reutilizar esta función si la necesitas
-    addNewServices,  // Para agregar mensajes
-    removeService,  // Para eliminar mensajes
-    modifyService,  // Para actualizar mensajes
+    loadServices,   
+    addNewServices,  
+    removeService, 
+    modifyService,  
   };
 };

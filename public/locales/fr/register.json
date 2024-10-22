@@ -1,13 +1,13 @@
 {
     
     "Name": "Nom et prénom",
-    "Email": "Courrier@google.com",
+    "Email": "Mail@google.com",
     "Login": "Se connecter",
-    "Mail": "Courrier",
+    "Mail": "Mail",
     "Password": "Mot de passe",
     "Password1": "Répéter le mot de passe",
     "Createaccount": "Créer un compte",
-    "enter": "entrer",
-    "Alreadyhaveanaccount?": "¿Vous avez déjà un compte ?"
+    "enter": "Entrer",
+    "Alreadyhaveanaccount?": "Vous avez déjà un compte?"
 }
 

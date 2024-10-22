@@ -14,8 +14,6 @@ export const Sidebar = () => {
 
   const { t, i18n } = useTranslation('sidebar');
 
-   
-
   const getDateFnsLocale = (lng) => {
     switch (lng) {
       case 'es':

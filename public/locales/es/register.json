@@ -1,14 +1,15 @@
 {
     
     "Name": "Nombre completo",
-    "Email": "Correo@google.com",
-    "Mail": "Correo",
+    "Email": "Correo electrónico@google.com",
     "Login": "Acceso",
+    "Mail": "Correo",
     "Password": "Contraseña",
-    "Password1": "Repita contraseña",
-    "Createaccount": "Crear cuenta",
-    "enter": "ingresar",
+    "Password1": "Repita la contraseña",
+    "Createaccount": "Crear una cuenta",
+    "enter": "Ingresar",
     "Alreadyhaveanaccount?": "¿Ya tienes una cuenta?"
     
 
 }
+
