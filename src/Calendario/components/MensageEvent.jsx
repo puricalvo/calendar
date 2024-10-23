@@ -5,6 +5,7 @@ import { useMessages } from "../../hooks";
 import {  Badge,  Grid, Icon,  IconButton,    Typography, Checkbox, List, ListItem, ListItemIcon, FormControlLabel, ListItemText, Divider, Stack, Box,  } from "@mui/material";
 import MailIcon from '@mui/icons-material/Mail';
 import CommentRoundedIcon from '@mui/icons-material/CommentRounded';
+import { useEffect, useState } from "react";
 
 
   
@@ -13,6 +14,25 @@ import CommentRoundedIcon from '@mui/icons-material/CommentRounded';
     const { t } = useTranslation('mensajesConductor');
     
     const { messages = [], isLoadingA, removeMessage } = useMessages();
+
+    const [checkedMessages, setCheckedMessages] = useState(() => {
+      // Recuperar el estado guardado en localStorage
+      const saved = localStorage.getItem("checkedMessages");
+      return saved ? JSON.parse(saved) : {};
+    });
+  
+    // Efecto para guardar el estado de los checkboxes en localStorage
+    useEffect(() => {
+      localStorage.setItem("checkedMessages", JSON.stringify(checkedMessages));
+    }, [checkedMessages]);
+  
+    // Función para manejar cuando un checkbox cambia
+    const handleCheckboxChange = (messageId) => {
+      setCheckedMessages((prev) => ({
+        ...prev,
+        [messageId]: !prev[messageId], // Cambia el estado de solo ese mensaje
+      }));
+    };
 
     const handleDelete = (messageId) => {
       removeMessage(messageId); // Llamamos a la función del hook para eliminar el mensaje
@@ -30,7 +50,7 @@ import CommentRoundedIcon from '@mui/icons-material/CommentRounded';
             
             <Stack direction="row"  alignItems="center" >
             <IconButton  aria-label={0}  >
-            <Badge  badgeContent={messages.length} color="error" >
+            <Badge  badgeContent={messages.length} color="error"   >
               <MailIcon />
             </Badge>
           </IconButton> 
@@ -49,7 +69,8 @@ import CommentRoundedIcon from '@mui/icons-material/CommentRounded';
                 <ListItemIcon>
               
                   <FormControlLabel
-                    control={<Checkbox checked={message.checked}  />}
+                    control={<Checkbox checked={!!checkedMessages[message.id]}  /> }
+                    onChange={() => handleCheckboxChange(message.id)}
                   />
                 </ListItemIcon>
                 <ListItemIcon>
