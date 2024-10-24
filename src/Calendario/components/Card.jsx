@@ -30,7 +30,7 @@ export const Card = () => {
 
     return (
         <Grid container direction='row' justifyContent="space-around" alignItems="center" sx={{ mb: 0, border: 1, xs: 12, sm: 6, borderColor: 'red', mt: 1, p: 0 }}>
-            <Typography variant="h4">{t('Servicios')}.L.P20T.102</Typography>
+            <Typography variant="h4">{t('Servicios')}{services.length > 0 && services[0].codigo ? `. ${services[0].codigo}` : null}</Typography>
             <Typography variant="h5" letterSpacing={2}>
                 <CalendarToday color="error" fontSize="large" />
                 <Typography variant="body1" component="span" sx={{ textAlign: "center" }}>{formattedDate}</Typography>
