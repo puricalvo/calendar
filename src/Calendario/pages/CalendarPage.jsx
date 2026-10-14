@@ -92,41 +92,39 @@ export const CalendarPage = () => {
         <TareaMes/>
       </Suspense>
 
-        <div >
+      <div>
         <select onChange={(e) => changeLanguage(e.target.value)} value={language}>
-            <option value="en">English</option>
-            <option value="es">Español</option>
-            <option value="fr">Français</option>
-            <option value="ca">Catalan</option>
+          <option value="en">English</option>
+          <option value="es">Español</option>
+          <option value="fr">Français</option>
+          <option value="ca">Catalan</option>
         </select>
-        </div>
-        <Divider/>
-        <Calendar
-          className='dias'
-          culture={ language }
-          localizer={ localizer }
-          events={ events }
-          defaultView={ lastView }
-          startAccessor="start"
-          endAccessor="end"
-          style={{ height: 'calc( 100vh - 80px)' }}
-          eventPropGetter={ eventStyleGetter }
-          components={{
-            event: CalendarEvent
-          }}
-          onDoubleClickEvent={ onDoubleClick }
-          onSelectEvent={ onSelect }
-          onView={ onViewChanged } 
-          messages={ getMessages(language) }
-          
-        />
+      </div>
+      <Divider/>
+      <Calendar
+        className='dias'
+        culture={ language }
+        localizer={ localizer }
+        events={ events }
+        defaultView={ lastView }
+        startAccessor="start"
+        endAccessor="end"
+        style={{ height: 'calc( 100vh - 80px)' }}
+        eventPropGetter={ eventStyleGetter }
+        components={{
+          event: CalendarEvent
+        }}
+        onDoubleClickEvent={ onDoubleClick }
+        onSelectEvent={ onSelect }
+        onView={ onViewChanged }
+        messages={ getMessages(language) }
+      />
 
+      <CalendarModal />
 
-          <CalendarModal />
-
-          {/* Botones flotantes */}
-          <FabAddNew />
-          <FabDelete />
+      {/* Botones flotantes */}
+      <FabAddNew />
+      <FabDelete />
 
     </>
   )

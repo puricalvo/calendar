@@ -11,8 +11,30 @@
     "CODIGO":"CODI",
     "L.INICIO":"LLOC.INICI",
     "L.FINAL":"LLOC.FINAL",
-    "Observaciones":"Observacions"
+    "Observaciones":"Observacions",
+    "Incident":"Incidència",
+    "WeeklySchedule":"Serveis de la setmana",
+    "AddRecord":"Afegir servei o dia de descans",
+    "Date":"Data",
+    "DayType":"Tipus de dia",
+    "Service":"Servei",
+    "Rest":"Descans",
+    "Unplanned":"Sense servei planificat",
+    "Loading":"Carregant...",
+    "Save":"Desar",
+    "Cancel":"Cancel·lar",
+    "Delete":"Eliminar",
+    "ConfirmDelete":"Vols eliminar aquest registre?",
+    "PreviousWeek":"Setmana anterior",
+    "NextWeek":"Setmana següent",
+    "CreateServices":"Crear serveis",
+    "Employee":"Empleat",
+    "NoEmployees":"Primer s'han de registrar els empleats.",
+    "SavedTitle":"Desat",
+    "SavedMessage":"El registre apareixerà a l'horari de l'empleat.",
+    "BackToSchedule":"Tornar a l'horari",
+    "AdminPanel":"Gestió de serveis",
+    "ManageWeeklyServices":"Consulta i organitza els serveis per empleat i setmana."
 
 
 }
-

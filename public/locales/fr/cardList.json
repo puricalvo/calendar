@@ -11,8 +11,30 @@
         "CODIGO":"CODE",
         "L.INICIO":"L.DÉPART",
         "L.FINAL":"P.DERNIÈRE",
-        "Observaciones":"Observations"
+        "Observaciones":"Observations",
+        "Incident":"Incident",
+        "WeeklySchedule":"Services de la semaine",
+        "AddRecord":"Ajouter un service ou un jour de repos",
+        "Date":"Date",
+        "DayType":"Type de journée",
+        "Service":"Service",
+        "Rest":"Repos",
+        "Unplanned":"Aucun service planifié",
+        "Loading":"Chargement...",
+        "Save":"Enregistrer",
+        "Cancel":"Annuler",
+        "Delete":"Supprimer",
+        "ConfirmDelete":"Voulez-vous supprimer cet élément ?",
+        "PreviousWeek":"Semaine précédente",
+        "NextWeek":"Semaine suivante",
+        "CreateServices":"Créer des services",
+        "Employee":"Employé",
+        "NoEmployees":"Les employés doivent d'abord s'inscrire.",
+        "SavedTitle":"Enregistré",
+        "SavedMessage":"L'enregistrement apparaîtra dans le planning de l'employé.",
+        "BackToSchedule":"Retour au planning",
+        "AdminPanel":"Gestion des services",
+        "ManageWeeklyServices":"Consultez et organisez les services par employé et par semaine."
 
     
 }
-

@@ -11,7 +11,30 @@
     "CODIGO":"CODIGO",
     "L.INICIO":"L.INICIO",
     "L.FINAL":"L.FINAL",
-    "Observaciones":"Observaciones"
+    "Observaciones":"Observaciones",
+    "Incident":"Incidencia",
+    "WeeklySchedule":"Servicios de la semana",
+    "AddRecord":"Añadir servicio o descanso",
+    "Date":"Fecha",
+    "DayType":"Tipo de día",
+    "Service":"Servicio",
+    "Rest":"Descanso",
+    "Unplanned":"Sin servicio planificado",
+    "Loading":"Cargando...",
+    "Save":"Guardar",
+    "Cancel":"Cancelar",
+    "Delete":"Eliminar",
+    "ConfirmDelete":"¿Quieres eliminar este registro?",
+    "PreviousWeek":"Semana anterior",
+    "NextWeek":"Semana siguiente",
+    "CreateServices":"Crear servicios",
+    "Employee":"Empleado",
+    "NoEmployees":"Primero deben registrarse los empleados.",
+    "SavedTitle":"Guardado",
+    "SavedMessage":"El registro se guardó y aparecerá en la ficha del empleado.",
+    "BackToSchedule":"Volver al horario",
+    "AdminPanel":"Gestión de servicios",
+    "ManageWeeklyServices":"Consulta y organiza los servicios por empleado y semana."
 
 
 }
