@@ -16,10 +16,19 @@ export const useAuthStore = () => {
             const { data } = await calendarApi.post('/auth', { email, password } )
             localStorage.setItem('token', data.token );   
             localStorage.setItem('token-init-date', new Date().getTime() );
-            dispatch( onLogin({ name: data.name, uid: data.uid }) );   
+            dispatch( onLogin({ name: data.name, uid: data.uid, role: data.role }) );
 
         } catch (error) {
-           dispatch( onLogout('Credenciales incorrectas') );
+           const validationErrors = error.response?.data?.errors;
+           const validationMessage = validationErrors
+               ? Object.values(validationErrors)[0]?.msg
+               : undefined;
+           dispatch( onLogout(
+               error.response?.data?.msg
+               || validationMessage
+               || error.message
+               || 'No se pudo iniciar sesión'
+           ) );
            setTimeout( () => {
             dispatch( clearErrorMessage() );
            }, 2000); 
@@ -35,10 +44,19 @@ export const useAuthStore = () => {
             const { data } = await calendarApi.post('/auth/new', { email, password, name } )
             localStorage.setItem('token', data.token );   
             localStorage.setItem('token-init-date', new Date().getTime() );
-            dispatch( onLogin({ name: data.name, uid: data.uid }) );   
+            dispatch( onLogin({ name: data.name, uid: data.uid, role: data.role }) );
 
         } catch (error) {
-           dispatch( onLogout( error.response.data?.msg || '--' ) );
+           const validationErrors = error.response?.data?.errors;
+           const validationMessage = validationErrors
+               ? Object.values(validationErrors)[0]?.msg
+               : undefined;
+           dispatch( onLogout(
+               error.response?.data?.msg
+               || validationMessage
+               || error.message
+               || 'No se pudo completar el registro'
+           ) );
            setTimeout( () => {
             dispatch( clearErrorMessage() );
            }, 2000); 
@@ -53,7 +71,7 @@ export const useAuthStore = () => {
             const { data } = await calendarApi.get('auth/renew');
             localStorage.setItem('token', data.token );   
             localStorage.setItem('token-init-date', new Date().getTime() );
-            dispatch( onLogin({ name: data.name, uid: data.uid }) );
+            dispatch( onLogin({ name: data.name, uid: data.uid, role: data.role }) );
         } catch (error) {
             localStorage.clear();
             dispatch( onLogout() );

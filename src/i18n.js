@@ -8,8 +8,10 @@ i18n
   .use(LanguageDetector) // Detecta automáticamente el idioma del navegador o configuración
   .use(initReactI18next) // Para integrar i18next con React
   .init({
+    ns: ['navbar', 'sidebar', 'cardList', 'mensajesConductor', 'modal', 'register'],
+    defaultNS: 'navbar',
     fallbackLng: 'en', // Idioma por defecto si no se encuentra el deseado
-    debug: true, // Para ver mensajes de error en consola
+    debug: false,
     interpolation: {
       escapeValue: false, // No escapes por razones de seguridad en React
     },

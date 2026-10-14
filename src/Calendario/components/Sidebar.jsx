@@ -68,6 +68,15 @@ export const Sidebar = () => {
               </Link>
             </Button>
             </ButtonGroup>
+            <Button
+              component={ RouterLink }
+              to="/admin/services"
+              variant="contained"
+              color="primary"
+              sx={{ m: 1 }}
+            >
+              {t('CreateServices')}
+            </Button>
             </Grid>
             
             

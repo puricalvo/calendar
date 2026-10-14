@@ -3,11 +3,23 @@ import { Divider, Grid, Toolbar } from "@mui/material";
 import { Navbar } from "../components/Navbar";
 import { Sidebar } from "../components/Sidebar";
 import { Suspense } from "react";
+import { useAuthStore } from "../../hooks";
+import { AdminDashboard } from "./AdminDashboard";
 
 
 export const HomePage = ({ children }) => {
+  const { user } = useAuthStore();
 
- 
+  if (user.role === 'admin') {
+    return (
+      <>
+        <Suspense fallback={<div>Loading translations...</div>}>
+          <Navbar />
+        </Suspense>
+        <AdminDashboard />
+      </>
+    );
+  }
 
   return (
     <>

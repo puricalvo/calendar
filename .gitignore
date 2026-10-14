@@ -1,5 +1,9 @@
 
+# Environment variables and secrets
 .env
+.env.*
+!.env.template
+!.env.example
 
 # Logs
 logs
@@ -10,9 +14,10 @@ yarn-error.log*
 pnpm-debug.log*
 lerna-debug.log*
 
-node_modules
-dist
+node_modules/
+dist/
 dist-ssr
+coverage/
 *.local
 
 # Editor directories and files
@@ -20,6 +25,7 @@ dist-ssr
 !.vscode/extensions.json
 .idea
 .DS_Store
+Thumbs.db
 *.suo
 *.ntvs*
 *.njsproj
