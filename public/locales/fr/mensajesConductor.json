@@ -1,5 +1,8 @@
 
      {
         "Title": "Commentaires au chauffeur...",
-        "Description": "Ceci est un nouveau message pour vous"
+        "Description": "Ceci est un nouveau message pour vous",
+        "Observation": "Observation",
+        "Incident": "Incident",
+        "NoMessages": "Vous n'avez aucun message, observation ou incident."
     }

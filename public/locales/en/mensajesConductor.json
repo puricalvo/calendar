@@ -1,5 +1,8 @@
 
      {
         "Title": "Comments to the driver...",
-        "Description": "This is a new message for you"
+        "Description": "This is a new message for you",
+        "Observation": "Observation",
+        "Incident": "Incident",
+        "NoMessages": "You have no messages, observations, or incidents."
      }
