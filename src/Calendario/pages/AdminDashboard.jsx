@@ -154,50 +154,59 @@ export const AdminDashboard = () => {
                 mt: { xs: 2, md: 4 },
                 px: { xs: 2, md: 4 },
                 pb: 5,
-                display: 'grid',
-                gridTemplateColumns: { xs: 'minmax(0, 1fr)', md: '280px minmax(0, 1fr)' },
-                alignItems: 'start',
-                gap: { xs: 2, md: 3 },
+                display: 'flex',
+                flexDirection: 'column',
+                gap: 2,
             }}
         >
-            <Box sx={{ minWidth: 0 }}>
+            <Box
+                sx={{
+                    display: 'grid',
+                    gridTemplateColumns: { xs: 'minmax(0, 1fr)', md: '320px minmax(0, 1fr)' },
+                    alignItems: 'center',
+                    gap: { xs: 2, md: 3 },
+                    minWidth: 0,
+                }}
+            >
                 <DatePike />
-            </Box>
-            <Stack spacing={2}>
-                <Stack
-                    direction={{ xs: 'column', sm: 'row' }}
-                    alignItems={{ sm: 'center' }}
-                    justifyContent="space-between"
-                    spacing={1}
-                >
-                    <Box>
-                        <Typography variant="h4">Panel de administración</Typography>
-                        <Typography color="text.secondary">
-                            Empleados y servicios asignados para la semana.
-                        </Typography>
-                    </Box>
-                    <Button
-                        component={RouterLink}
-                        to="/admin/services"
-                        variant="contained"
-                        sx={{ alignSelf: { xs: 'flex-start', sm: 'center' } }}
+                <Stack spacing={2} sx={{ minWidth: 0 }}>
+                    <Stack
+                        direction={{ xs: 'column', sm: 'row' }}
+                        alignItems={{ sm: 'center' }}
+                        justifyContent="space-between"
+                        spacing={1}
                     >
-                        Crear servicios
-                    </Button>
-                </Stack>
+                        <Box>
+                            <Typography variant="h4">Panel de administración</Typography>
+                            <Typography color="text.secondary">
+                                Empleados y servicios asignados para la semana.
+                            </Typography>
+                        </Box>
+                        <Button
+                            component={RouterLink}
+                            to="/admin/services"
+                            variant="contained"
+                            sx={{ alignSelf: { xs: 'flex-start', sm: 'center' } }}
+                        >
+                            Crear servicios
+                        </Button>
+                    </Stack>
 
-                <Stack direction="row" alignItems="center" justifyContent="center" spacing={2}>
-                    <IconButton aria-label="Semana anterior" onClick={() => setWeekStart((date) => subWeeks(date, 1))}>
-                        <NavigateBefore />
-                    </IconButton>
-                    <Typography variant="subtitle1">
-                        {format(weekStart, 'd MMM', { locale: es })} – {format(weekEnd, 'd MMM yyyy', { locale: es })}
-                    </Typography>
-                    <IconButton aria-label="Semana siguiente" onClick={() => setWeekStart((date) => addWeeks(date, 1))}>
-                        <NavigateNext />
-                    </IconButton>
+                    <Stack direction="row" alignItems="center" justifyContent="center" spacing={2}>
+                        <IconButton aria-label="Semana anterior" onClick={() => setWeekStart((date) => subWeeks(date, 1))}>
+                            <NavigateBefore />
+                        </IconButton>
+                        <Typography variant="subtitle1">
+                            {format(weekStart, 'd MMM', { locale: es })} – {format(weekEnd, 'd MMM yyyy', { locale: es })}
+                        </Typography>
+                        <IconButton aria-label="Semana siguiente" onClick={() => setWeekStart((date) => addWeeks(date, 1))}>
+                            <NavigateNext />
+                        </IconButton>
+                    </Stack>
                 </Stack>
+            </Box>
 
+            <Stack spacing={2} sx={{ minWidth: 0 }}>
                 {error && <Alert severity="error">{error}</Alert>}
                 {loading ? (
                     <Typography role="status">Cargando empleados y servicios…</Typography>
