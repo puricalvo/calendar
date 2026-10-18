@@ -2,6 +2,11 @@
      {
         "Title": "Comentaris al conduct@r...",
         "Description": "Aquest és un nou missatge per a tu",
+        "AdminInbox": "Missatges dels empleats",
+        "UnknownSender": "Empleat",
+        "MessageCount": "Missatges: {{count}}",
+        "DeleteMessage": "Eliminar el missatge",
+        "Loading": "Carregant...",
         "Observation": "Observació",
         "Incident": "Incidència",
         "NoMessages": "No tens missatges, observacions ni incidències."

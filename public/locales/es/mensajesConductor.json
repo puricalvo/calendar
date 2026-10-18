@@ -2,6 +2,11 @@
      {
         "Title": "Comentarios al conduct@r...",
         "Description": "Este es un nuevo mensaje para ti",
+        "AdminInbox": "Mensajes de empleados",
+        "UnknownSender": "Empleado",
+        "MessageCount": "Mensajes: {{count}}",
+        "DeleteMessage": "Eliminar mensaje",
+        "Loading": "Cargando...",
         "Observation": "Observación",
         "Incident": "Incidencia",
         "NoMessages": "No tienes mensajes, observaciones ni incidencias."
