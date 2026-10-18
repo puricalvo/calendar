@@ -1,4 +1,4 @@
-import { Link as RouterLink } from 'react-router-dom';
+import { Link as RouterLink, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { useAuthStore } from '../../hooks/useAuthStore';
 
@@ -8,6 +8,7 @@ import AirportShuttleIcon from '@mui/icons-material/AirportShuttle';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import SearchIcon from '@mui/icons-material/Search';
 import { Flag } from '@mui/icons-material';
+import { useEffect } from 'react';
 
 
 
@@ -22,6 +23,12 @@ export const Navbar = () => {
   };
   
   const { startLogout, user } = useAuthStore();
+  const location = useLocation();
+
+  useEffect(() => {
+    if (user.role !== 'admin' || location.pathname !== '/home' || location.hash !== '#admin-inbox') return;
+    document.getElementById('admin-inbox')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }, [location.hash, location.pathname, user.role]);
     
   
  
@@ -98,6 +105,5 @@ export const Navbar = () => {
         </Grid>
   )
 }
-
 
 
