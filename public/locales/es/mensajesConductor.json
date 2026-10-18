@@ -1,5 +1,8 @@
 
      {
         "Title": "Comentarios al conduct@r...",
-        "Description": "Este es un nuevo mensaje para ti"
+        "Description": "Este es un nuevo mensaje para ti",
+        "Observation": "Observación",
+        "Incident": "Incidencia",
+        "NoMessages": "No tienes mensajes, observaciones ni incidencias."
     }

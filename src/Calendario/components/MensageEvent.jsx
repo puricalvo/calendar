@@ -1,6 +1,8 @@
 
 import { useTranslation } from "react-i18next";
 import { useMessages } from "../../hooks";
+import { useSelector } from "react-redux";
+import { format } from "date-fns";
 
 import {  Badge,  Grid, Icon,  IconButton,    Typography, Checkbox, List, ListItem, ListItemIcon, FormControlLabel, ListItemText, Divider, Stack, Box,  } from "@mui/material";
 import MailIcon from '@mui/icons-material/Mail';
@@ -14,6 +16,23 @@ import { useEffect, useState } from "react";
     const { t } = useTranslation('mensajesConductor');
     
     const { messages = [], isLoadingA, removeMessage } = useMessages();
+    const { services = [], isLoading: areServicesLoading } = useSelector((state) => state.services || {});
+    const serviceNotes = services.flatMap((service) => [
+      service.observaciones?.trim() && {
+        id: `${service.id || service._id}-observation`,
+        date: service.start,
+        code: service.codigo,
+        label: t('Observation'),
+        text: service.observaciones.trim(),
+      },
+      service.incidentComment?.trim() && {
+        id: `${service.id || service._id}-incident`,
+        date: service.start,
+        code: service.codigo,
+        label: t('Incident'),
+        text: service.incidentComment.trim(),
+      },
+    ].filter(Boolean));
 
     const [checkedMessages, setCheckedMessages] = useState(() => {
       // Recuperar el estado guardado en localStorage
@@ -50,7 +69,7 @@ import { useEffect, useState } from "react";
             
             <Stack direction="row"  alignItems="center" >
             <IconButton  aria-label={0}  >
-            <Badge  badgeContent={messages.length} color="error"   >
+            <Badge  badgeContent={messages.length + serviceNotes.length} color="error"   >
               <MailIcon />
             </Badge>
           </IconButton> 
@@ -83,6 +102,21 @@ import { useEffect, useState } from "react";
                 </Grid>
               </ListItem>
             ))}
+            {serviceNotes.map((note) => (
+              <ListItem key={note.id} alignItems="flex-start">
+                <ListItemText
+                  primary={`${note.label}${note.code ? ` · ${note.code}` : ''} · ${format(new Date(note.date), 'dd-MM-yyyy')}`}
+                  secondary={note.text}
+                  primaryTypographyProps={{ fontWeight: 600 }}
+                  secondaryTypographyProps={{ sx: { whiteSpace: 'pre-wrap' } }}
+                />
+              </ListItem>
+            ))}
+            {!isLoadingA && !areServicesLoading && messages.length === 0 && serviceNotes.length === 0 && (
+              <ListItem>
+                <ListItemText primary={t('NoMessages')} />
+              </ListItem>
+            )}
           </List>
         )}
 

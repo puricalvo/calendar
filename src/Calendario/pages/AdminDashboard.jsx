@@ -262,11 +262,6 @@ export const AdminDashboard = () => {
                                                                         t={(key) => key}
                                                                         locale={es}
                                                                     />
-                                                                    {service.incidentComment && (
-                                                                        <Alert severity="warning" sx={{ mt: 1 }}>
-                                                                            <strong>Incidencia:</strong> {service.incidentComment}
-                                                                        </Alert>
-                                                                    )}
                                                                 </>
                                                             )}
                                                         </Box>
