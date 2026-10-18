@@ -159,39 +159,41 @@ export const AdminDashboard = () => {
                 gap: 2,
             }}
         >
+            <Stack
+                direction={{ xs: 'column', sm: 'row' }}
+                alignItems={{ sm: 'center' }}
+                justifyContent="space-between"
+                spacing={1}
+            >
+                <Box>
+                    <Typography variant="h4">Panel de administración</Typography>
+                    <Typography color="text.secondary">
+                        Empleados y servicios asignados para la semana.
+                    </Typography>
+                </Box>
+                <Button
+                    component={RouterLink}
+                    to="/admin/services"
+                    variant="contained"
+                    sx={{ alignSelf: { xs: 'flex-start', sm: 'center' } }}
+                >
+                    Crear servicios
+                </Button>
+            </Stack>
+
             <Box
                 sx={{
                     display: 'grid',
-                    gridTemplateColumns: { xs: 'minmax(0, 1fr)', md: '320px minmax(0, 1fr)' },
-                    alignItems: 'center',
-                    gap: { xs: 2, md: 3 },
+                    gridTemplateColumns: { xs: 'minmax(0, 1fr)', md: 'minmax(280px, 360px) minmax(0, 1fr)' },
+                    alignItems: 'start',
+                    gap: 2,
                     minWidth: 0,
                 }}
             >
-                <DatePike />
-                <Stack spacing={2} sx={{ minWidth: 0 }}>
-                    <Stack
-                        direction={{ xs: 'column', sm: 'row' }}
-                        alignItems={{ sm: 'center' }}
-                        justifyContent="space-between"
-                        spacing={1}
-                    >
-                        <Box>
-                            <Typography variant="h4">Panel de administración</Typography>
-                            <Typography color="text.secondary">
-                                Empleados y servicios asignados para la semana.
-                            </Typography>
-                        </Box>
-                        <Button
-                            component={RouterLink}
-                            to="/admin/services"
-                            variant="contained"
-                            sx={{ alignSelf: { xs: 'flex-start', sm: 'center' } }}
-                        >
-                            Crear servicios
-                        </Button>
-                    </Stack>
-
+                <Box sx={{ minWidth: 0, display: 'flex', justifyContent: 'center' }}>
+                    <DatePike />
+                </Box>
+                <Stack spacing={2} sx={{ minWidth: 0, width: '100%' }}>
                     <Stack direction="row" alignItems="center" justifyContent="center" spacing={2}>
                         <IconButton aria-label="Semana anterior" onClick={() => setWeekStart((date) => subWeeks(date, 1))}>
                             <NavigateBefore />
@@ -203,10 +205,7 @@ export const AdminDashboard = () => {
                             <NavigateNext />
                         </IconButton>
                     </Stack>
-                </Stack>
-            </Box>
 
-            <Stack spacing={2} sx={{ minWidth: 0 }}>
                 {error && <Alert severity="error">{error}</Alert>}
                 {loading ? (
                     <Typography role="status">Cargando empleados y servicios…</Typography>
@@ -301,7 +300,8 @@ export const AdminDashboard = () => {
                         })}
                     </Stack>
                 )}
-            </Stack>
+                </Stack>
+            </Box>
 
             <Box id="admin-inbox" sx={{ scrollMarginTop: 2 }}>
                 <MensageEvent />
