@@ -2,6 +2,11 @@
      {
         "Title": "Comments to the driver...",
         "Description": "This is a new message for you",
+        "AdminInbox": "Employee messages",
+        "UnknownSender": "Employee",
+        "MessageCount": "Messages: {{count}}",
+        "DeleteMessage": "Delete message",
+        "Loading": "Loading...",
         "Observation": "Observation",
         "Incident": "Incident",
         "NoMessages": "You have no messages, observations, or incidents."

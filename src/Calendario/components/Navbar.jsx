@@ -5,7 +5,7 @@ import { useAuthStore } from '../../hooks/useAuthStore';
 
 import { Avatar, Button, ButtonGroup,  Divider,  Grid,  Icon,  IconButton, Link, Typography } from '@mui/material';
 import AirportShuttleIcon from '@mui/icons-material/AirportShuttle';
-import HomeIcon from '@mui/icons-material/Home';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import SearchIcon from '@mui/icons-material/Search';
 import { Flag } from '@mui/icons-material';
 
@@ -60,13 +60,15 @@ export const Navbar = () => {
                 </Grid>
                 
                 <Grid size={{ xs: 12, md: 6,}} sx={{ flexGrow: 'auto',  }} > 
-                    <Button 
-                      variant="text" 
-                      color="error" 
-                      sx={{  mr: 0, ml: '2px'}}>
-                        <Link component={ RouterLink } color='inherit' to="/message">  
-                        <HomeIcon sx={{fontSize: '2rem', display: { md: "inline-flex" }}}/>
-                        </Link>
+                    <Button
+                      component={RouterLink}
+                      to={user.role === 'admin' ? '/home#admin-inbox' : '/message'}
+                      aria-label={user.role === 'admin' ? 'Buzón de mensajes' : 'Enviar mensaje al administrador'}
+                      variant="text"
+                      color="error"
+                      sx={{ mr: 0, ml: '2px' }}
+                    >
+                      <MailOutlineIcon sx={{ fontSize: '2rem', display: { md: 'inline-flex' } }} />
                     </Button>
                     <Button variant="text"  color="error"sx={{ mr: 0, ml: '-2px', mt: 1}}><SearchIcon sx={{fontSize: '2rem', display: {  md: "inline-flex" }}} /></Button>
                     <Button  
@@ -96,7 +98,6 @@ export const Navbar = () => {
         </Grid>
   )
 }
-
 
 
 

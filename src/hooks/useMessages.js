@@ -10,12 +10,13 @@ export const useMessages = () => {
   const { messages = [], isLoading } = useSelector((state) => state.messages || {});
 
   const { user } = useSelector( state => state.auth ); 
+  const isAdmin = user?.role === 'admin';
 
   // Función para cargar los mensajes desde la API
   const loadMessages = useCallback(async () => {
     dispatch(setLoadingA(true));
     try {
-      const { data } = await calendarApi.get('/messages');
+      const { data } = await calendarApi.get(isAdmin ? '/messages/admin/inbox' : '/messages');
       
       // Asegúrate de que accedes a 'mensage'
       if (data && data.mensages) {  // Si la API devuelve un array de mensajes con la clave "mensages"
@@ -29,7 +30,7 @@ export const useMessages = () => {
     } finally {
       dispatch(setLoadingA(false));
     }
-  }, [dispatch]);
+  }, [dispatch, isAdmin]);
 
   // Función para agregar un nuevo mensaje
   const addNewMessage = useCallback(async (messageText) => {
@@ -37,17 +38,16 @@ export const useMessages = () => {
     try {
       const { data } = await calendarApi.post('/messages', { text: messageText });
       
-      console.log('Respuesta de la API:', data);  // Depuración para asegurarte de que todo está bien
-  
-      // Asegúrate de acceder a "mensage" correctamente
       if (data && data.mensage) {
-        dispatch(addMessage(data.mensage));  // Ahora usa "mensage" en lugar de "message"
+        dispatch(addMessage(data.mensage));
+        return true;
       } else {
         throw new Error('La respuesta no contiene un mensaje válido.');
       }
     } catch (error) {
       console.error('Error al agregar mensaje:', error);
-      Swal.fire('Error', 'No se pudo agregar el mensaje', 'error');
+      Swal.fire('Error', error.response?.data?.msg || 'No se pudo enviar el mensaje al administrador', 'error');
+      return false;
     }
     
   }, [dispatch]);
@@ -55,13 +55,13 @@ export const useMessages = () => {
   // Función para eliminar un mensaje
   const removeMessage = useCallback(async (messageId) => {
     try {
-      await calendarApi.delete(`/messages/${messageId}`);
+      await calendarApi.delete(isAdmin ? `/messages/admin/inbox/${messageId}` : `/messages/${messageId}`);
       dispatch(deleteMessage(messageId));
     } catch (error) {
       console.error('Error al eliminar mensaje:', error);
       Swal.fire('Error', 'No se pudo eliminar el mensaje', 'error');
     }
-  }, [dispatch]);
+  }, [dispatch, isAdmin]);
 
   // Función para actualizar un mensaje existente
   const modifyMessage = useCallback(async (message) => {

@@ -22,6 +22,7 @@ import { es } from 'date-fns/locale';
 import Swal from 'sweetalert2';
 import { calendarApi } from '../../api';
 import { ServiceCard } from '../components/Card';
+import { MensageEvent } from '../components/MensageEvent';
 
 const serviceDateKey = (value) => (
     typeof value === 'string' ? value.slice(0, 10) : new Date(value).toISOString().slice(0, 10)
@@ -276,6 +277,10 @@ export const AdminDashboard = () => {
                     </Stack>
                 )}
             </Stack>
+
+            <Box id="admin-inbox" sx={{ scrollMarginTop: 2 }}>
+                <MensageEvent />
+            </Box>
 
             <Dialog open={Boolean(editingService)} onClose={() => !savingComment && setEditingService(null)} fullWidth maxWidth="sm">
                 <DialogTitle>Comentario de incidencia</DialogTitle>

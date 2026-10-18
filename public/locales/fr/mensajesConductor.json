@@ -2,6 +2,11 @@
      {
         "Title": "Commentaires au chauffeur...",
         "Description": "Ceci est un nouveau message pour vous",
+        "AdminInbox": "Messages des employés",
+        "UnknownSender": "Employé",
+        "MessageCount": "Messages : {{count}}",
+        "DeleteMessage": "Supprimer le message",
+        "Loading": "Chargement...",
         "Observation": "Observation",
         "Incident": "Incident",
         "NoMessages": "Vous n'avez aucun message, observation ou incident."
