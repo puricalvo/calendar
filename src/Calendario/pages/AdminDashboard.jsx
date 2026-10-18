@@ -21,6 +21,7 @@ import { addDays, addWeeks, format, startOfWeek, subWeeks } from 'date-fns';
 import { es } from 'date-fns/locale';
 import Swal from 'sweetalert2';
 import { calendarApi } from '../../api';
+import { DatePike } from '../components';
 import { ServiceCard } from '../components/Card';
 import { MensageEvent } from '../components/MensageEvent';
 
@@ -146,7 +147,22 @@ export const AdminDashboard = () => {
     };
 
     return (
-        <Box sx={{ maxWidth: 1200, mx: 'auto', mt: { xs: 2, md: 4 }, px: { xs: 2, md: 4 }, pb: 5 }}>
+        <Box
+            sx={{
+                maxWidth: 1200,
+                mx: 'auto',
+                mt: { xs: 2, md: 4 },
+                px: { xs: 2, md: 4 },
+                pb: 5,
+                display: 'grid',
+                gridTemplateColumns: { xs: 'minmax(0, 1fr)', md: '280px minmax(0, 1fr)' },
+                alignItems: 'start',
+                gap: { xs: 2, md: 3 },
+            }}
+        >
+            <Box sx={{ minWidth: 0 }}>
+                <DatePike />
+            </Box>
             <Stack spacing={2}>
                 <Stack
                     direction={{ xs: 'column', sm: 'row' }}
