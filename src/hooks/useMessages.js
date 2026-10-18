@@ -52,6 +52,20 @@ export const useMessages = () => {
     
   }, [dispatch]);
 
+  const replyToUser = useCallback(async ({ recipientId, text }) => {
+    try {
+      const { data } = await calendarApi.post('/messages/admin/reply', { recipientId, text });
+      if (!data?.mensage) {
+        throw new Error('La respuesta no contiene un mensaje válido.');
+      }
+      return true;
+    } catch (error) {
+      console.error('Error al responder al empleado:', error);
+      Swal.fire('Error', error.response?.data?.msg || 'No se pudo enviar la respuesta', 'error');
+      return false;
+    }
+  }, []);
+
   // Función para eliminar un mensaje
   const removeMessage = useCallback(async (messageId) => {
     try {
@@ -90,6 +104,7 @@ export const useMessages = () => {
     isLoading,
     loadMessages,   // Puedes reutilizar esta función si la necesitas
     addNewMessage,  // Para agregar mensajes
+    replyToUser,
     removeMessage,  // Para eliminar mensajes
     modifyMessage,  // Para actualizar mensajes
   };
