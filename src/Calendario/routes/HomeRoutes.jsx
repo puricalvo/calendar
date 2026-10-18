@@ -21,7 +21,7 @@ export const HomeRoutes = () => {
             <Route path="calendar" element={<CalendarPage />} />
             <Route
                 path="message"
-                element={user.role === 'user' ? <MessagesPage /> : <Navigate to="/home" replace />}
+                element={user.role === 'user' || user.role === 'admin' ? <MessagesPage /> : <Navigate to="/home" replace />}
             />
             <Route
                 path="admin/services"

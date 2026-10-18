@@ -69,8 +69,8 @@ export const Navbar = () => {
                 <Grid size={{ xs: 12, md: 6,}} sx={{ flexGrow: 'auto',  }} > 
                     <Button
                       component={RouterLink}
-                      to={user.role === 'admin' ? '/home#admin-inbox' : '/message'}
-                      aria-label={user.role === 'admin' ? 'Buzón de mensajes' : 'Enviar mensaje al administrador'}
+                      to="/message"
+                      aria-label={user.role === 'admin' ? 'Enviar mensaje a un empleado' : 'Enviar mensaje al administrador'}
                       variant="text"
                       color="error"
                       sx={{ mr: 0, ml: '2px' }}
@@ -105,5 +105,4 @@ export const Navbar = () => {
         </Grid>
   )
 }
-
 
