@@ -149,7 +149,7 @@ export const AdminDashboard = () => {
     return (
         <Box
             sx={{
-                maxWidth: 1200,
+                maxWidth: 1320,
                 mx: 'auto',
                 mt: { xs: 2, md: 4 },
                 px: { xs: 2, md: 4 },
