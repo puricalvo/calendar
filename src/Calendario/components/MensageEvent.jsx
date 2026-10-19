@@ -15,11 +15,9 @@ import {
     FormControlLabel,
     Grid,
     InputLabel,
-    Icon,
     IconButton,
     List,
     ListItem,
-    ListItemIcon,
     ListItemText,
     MenuItem,
     Select,
@@ -34,10 +32,21 @@ import { useAuthStore } from '../../hooks/useAuthStore';
 
 export const MensageEvent = () => {
     const { t } = useTranslation('mensajesConductor');
-    const { messages = [], isLoading, removeMessage, replyToUser, loadMessages } = useMessages();
+    const {
+        messages = [],
+        isLoading,
+        isLoadingMore,
+        hasMore,
+        total,
+        replyToUser,
+        loadMessages,
+        loadOlderMessages,
+        markMessageRead,
+    } = useMessages();
     const { user } = useAuthStore();
     const { services = [], isLoading: areServicesLoading } = useSelector((state) => state.services || {});
     const isAdmin = user?.role === 'admin';
+    const currentUserId = user?.uid || user?.id || user?._id;
     const [employees, setEmployees] = useState([]);
     const [employeesLoading, setEmployeesLoading] = useState(false);
     const [replyOpen, setReplyOpen] = useState(false);
@@ -45,6 +54,7 @@ export const MensageEvent = () => {
     const [replyText, setReplyText] = useState('');
     const [replying, setReplying] = useState(false);
     const [replyError, setReplyError] = useState('');
+    const [markingMessageId, setMarkingMessageId] = useState('');
     const serviceNotes = isAdmin ? [] : services.flatMap((service) => [
         service.observaciones?.trim() && {
             id: `${service.id || service._id}-observation`,
@@ -61,15 +71,6 @@ export const MensageEvent = () => {
             text: service.incidentComment.trim(),
         },
     ].filter(Boolean));
-
-    const [checkedMessages, setCheckedMessages] = useState(() => {
-        const saved = localStorage.getItem('checkedMessages');
-        return saved ? JSON.parse(saved) : {};
-    });
-
-    useEffect(() => {
-        localStorage.setItem('checkedMessages', JSON.stringify(checkedMessages));
-    }, [checkedMessages]);
 
     useEffect(() => {
         if (!isAdmin) return undefined;
@@ -114,18 +115,17 @@ export const MensageEvent = () => {
         setReplying(false);
     };
 
-    const handleCheckboxChange = (messageId) => {
-        setCheckedMessages((previous) => ({
-            ...previous,
-            [messageId]: !previous[messageId],
-        }));
+    const handleMarkRead = async (messageId) => {
+        setMarkingMessageId(messageId);
+        await markMessageRead(messageId);
+        setMarkingMessageId('');
     };
 
     return (
         <Grid container direction="row" justifyContent="space-between" alignItems="center" sx={{ mt: 5, p: 2 }}>
             <Stack direction="row" alignItems="center" spacing={1}>
-                <IconButton aria-label={t('MessageCount', { count: messages.length + serviceNotes.length })}>
-                    <Badge badgeContent={messages.length + serviceNotes.length} color="error">
+                <IconButton aria-label={t('MessageCount', { count: total + serviceNotes.length })}>
+                    <Badge badgeContent={total + serviceNotes.length} color="error">
                         <MailIcon />
                     </Badge>
                 </IconButton>
@@ -137,40 +137,77 @@ export const MensageEvent = () => {
                     <Typography variant="h6">{t('Loading')}</Typography>
                 ) : (
                     <List sx={{ width: '100%' }}>
-                        {messages.map((message) => (
-                            <ListItem key={message.id} alignItems="flex-start">
-                                {!isAdmin && (
-                                    <ListItemIcon>
+                        {messages.map((message) => {
+                            const senderId = message.user?.id || message.user?._id || message.user;
+                            const isOwnMessage = String(senderId) === String(currentUserId);
+                            const date = format(new Date(message.date), 'dd-MM-yyyy HH:mm');
+                            const readDate = message.readAt
+                                ? format(new Date(message.readAt), 'dd-MM-yyyy HH:mm')
+                                : '';
+                            const recipientName = message.recipient?.name
+                                || message.recipient?.email
+                                || t('UnknownRecipient');
+
+                            return (
+                                <ListItem
+                                    key={message.id}
+                                    alignItems="flex-start"
+                                    sx={{ gap: 1, flexWrap: 'wrap' }}
+                                >
+                                    {isAdmin && !isOwnMessage && (
+                                        <Button size="small" onClick={() => openReply(message)}>
+                                            {t('Reply')}
+                                        </Button>
+                                    )}
+                                    <ListItemText
+                                        sx={{ minWidth: 180, flex: '1 1 300px' }}
+                                        primary={isAdmin
+                                            ? `${isOwnMessage
+                                                ? t('SentTo', { recipient: recipientName })
+                                                : message.user?.name || t('UnknownSender')} · ${date}`
+                                            : `${isOwnMessage ? t('You') : message.user?.name || t('UnknownSender')} · ${date}`}
+                                        secondary={message.text}
+                                        secondaryTypographyProps={{ sx: { whiteSpace: 'pre-wrap' } }}
+                                    />
+                                    {isOwnMessage ? (
+                                        <Typography
+                                            variant="caption"
+                                            color={message.readAt ? 'success.main' : 'text.secondary'}
+                                            sx={{ alignSelf: 'center' }}
+                                        >
+                                            {message.readAt
+                                                ? t('ReadAt', { date: readDate })
+                                                : t('PendingRead')}
+                                        </Typography>
+                                    ) : (
                                         <FormControlLabel
-                                            control={<Checkbox checked={!!checkedMessages[message.id]} />}
-                                            onChange={() => handleCheckboxChange(message.id)}
-                                            label=""
+                                            sx={{ mr: 0, alignSelf: 'center' }}
+                                            control={(
+                                                <Checkbox
+                                                    checked={Boolean(message.readAt)}
+                                                    disabled={Boolean(message.readAt) || markingMessageId === message.id}
+                                                    onChange={() => handleMarkRead(message.id)}
+                                                />
+                                            )}
+                                            label={message.readAt
+                                                ? t('ReadAt', { date: readDate })
+                                                : t('MarkAsRead')}
                                         />
-                                    </ListItemIcon>
-                                )}
-                                <ListItemIcon>
-                                    <IconButton
-                                        aria-label={t('DeleteMessage')}
-                                        sx={{ color: 'error.main' }}
-                                        onClick={() => removeMessage(message.id)}
-                                    >
-                                        <Icon className="fas fa-trash-alt" />
-                                    </IconButton>
-                                </ListItemIcon>
-                                {isAdmin && (
-                                    <Button size="small" onClick={() => openReply(message)}>
-                                        {t('Reply')}
-                                    </Button>
-                                )}
-                                <ListItemText
-                                    primary={isAdmin
-                                        ? `${message.user?.name || t('UnknownSender')} · ${format(new Date(message.date), 'dd-MM-yyyy HH:mm')}`
-                                        : `${message.user?.name ? `${message.user.name} · ` : ''}${message.text}`}
-                                    secondary={isAdmin ? message.text : undefined}
-                                    secondaryTypographyProps={{ sx: { whiteSpace: 'pre-wrap' } }}
-                                />
+                                    )}
+                                </ListItem>
+                            );
+                        })}
+                        {hasMore ? (
+                            <ListItem sx={{ justifyContent: 'center' }}>
+                                <Button onClick={loadOlderMessages} disabled={isLoadingMore}>
+                                    {isLoadingMore ? t('LoadingOlder') : t('LoadOlder')}
+                                </Button>
                             </ListItem>
-                        ))}
+                        ) : messages.length > 0 ? (
+                            <ListItem>
+                                <ListItemText primary={t('NoMoreMessages')} />
+                            </ListItem>
+                        ) : null}
                         {serviceNotes.map((note) => (
                             <ListItem key={note.id} alignItems="flex-start">
                                 <ListItemText
