@@ -1,41 +1,59 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-// const initialState = {
-  
-// };
+const compareMessages = (first, second) => {
+  const dateDifference = new Date(second.date).getTime() - new Date(first.date).getTime();
+  return dateDifference || String(second.id).localeCompare(String(first.id));
+};
 
- export const messagesSlice = createSlice({
+const mergeMessages = (messages) => (
+  [...new Map(messages.map((message) => [message.id, message])).values()]
+    .sort(compareMessages)
+);
+
+export const messagesSlice = createSlice({
   name: 'messages',
   initialState: {
     messages: [],
     isLoading: false,
+    isLoadingMore: false,
+    hasMore: false,
+    nextCursor: null,
+    total: 0,
   },
   reducers: {
     setMessages: (state, action) => {
-        state.messages = action.payload;
-      },
-      addMessage: (state, action) => {
-        if (!Array.isArray(state.messages)) {
-          state.messages = []; // Asegúrate de que sea un array
-        }
-        state.messages.push(action.payload); // Agregar el nuevo mensaje
-      },
-      updateMessage: (state, action) => {
-        const index = state.messages.findIndex(msg => msg.id === action.payload.id);
-        if (index !== -1) {
-          state.messages[index] = action.payload;
-        }
-      },
-      deleteMessage: (state, action) => {
-        state.messages = state.messages.filter(msg => msg.id !== action.payload);
-      },
-      setLoadingA: (state, action) => {
-        state.isLoading = action.payload;
-      }
+      state.messages = mergeMessages(action.payload.messages);
+      state.hasMore = action.payload.hasMore;
+      state.nextCursor = action.payload.nextCursor;
+      state.total = action.payload.total;
     },
-  });
-  
-  export const { setMessages, addMessage, updateMessage, deleteMessage, setLoadingA } = messagesSlice.actions;
-  
-  
+    prependMessages: (state, action) => {
+      state.messages = mergeMessages([...action.payload.messages, ...state.messages]);
+      state.hasMore = action.payload.hasMore;
+      state.nextCursor = action.payload.nextCursor;
+    },
+    addMessage: (state, action) => {
+      state.messages = mergeMessages([...state.messages, action.payload]);
+      state.total += 1;
+    },
+    setMessageRead: (state, action) => {
+      const message = state.messages.find(({ id }) => id === action.payload.id);
+      if (message) message.readAt = action.payload.readAt;
+    },
+    setLoadingA: (state, action) => {
+      state.isLoading = action.payload;
+    },
+    setLoadingMore: (state, action) => {
+      state.isLoadingMore = action.payload;
+    },
+  },
+});
 
+export const {
+  setMessages,
+  prependMessages,
+  addMessage,
+  setMessageRead,
+  setLoadingA,
+  setLoadingMore,
+} = messagesSlice.actions;
